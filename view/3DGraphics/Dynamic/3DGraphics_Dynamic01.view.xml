@@ -1,0 +1,104 @@
+<mvc:View
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout" 
+	xmlns:f="sap.ui.layout.form"
+	xmlns:grid="sap.ui.layout.cssgrid"		
+	xmlns:unified="sap.ui.unified"	
+	xmlns:html="http://www.w3.org/1999/xhtml"	
+	xmlns="sap.m"  
+	xmlns:controls="wohland.de.controls"		
+  controllerName="wohland.de.controller.3DGraphics.Dynamic.3DGraphics_Dynamic01"
+  >
+    <Page 
+        id="page"
+		enableScrolling="true"     		
+		showHeader="false"        		   
+        navButtonPress=".onBackPressed"
+		>
+		<content>		
+<!-- Menuleiste -->		
+			<grid:CSSGrid
+				id="grid1"
+				class="MattesDesignMenuBar" 			
+				gridTemplateColumns="1fr 10fr  10fr 1fr 1fr"
+				gridTemplateRows="50px"
+				gridGap="1rem .2rem">
+				<Button
+					class="sapUiSmallMarginLeft"
+					icon="sap-icon://menu2"
+		    		press=".handleMenuLeftPress">
+				</Button>
+				<core:HTML content='&lt;article class=&quot;stylePageLayout&quot;&gt;&lt;/article&gt;' />						
+				<core:HTML content='&lt;article class=&quot;stylePageLayout&quot;&gt;&lt;/article&gt;' />			
+				<Button
+					class="sapUiSmallMarginLeft"
+					text="Impressum"
+		    		press=".onPressNavImpressumButton">
+				</Button>			
+
+				<Button
+					class="sapUiSmallMarginLeft"
+					icon="sap-icon://information"
+		    		press=".handleMenuInfoPress">
+				</Button>	
+			</grid:CSSGrid>
+
+		  	<l:VerticalLayout  class="sapUiTinyMarginEnd">
+		<l:VerticalLayout class="sapUiTinyMargin">
+			<l:Grid
+				class="sapUiSmallMarginTop"
+				hSpacing="2"
+				defaultSpan="L6 M12 S12"
+			>
+				<l:content>				   			
+					<VBox>									   					
+						<html:div class="MattesDesignTextH3">
+							3D Modell mit Steuerung von Objekten und Kamera
+ 						</html:div>
+							<controls:ThreeSceneManager class="threeCylinderGeometry">
+ 									
+							</controls:ThreeSceneManager>		
+
+						<html:div class="MattesDesignTextStd">
+							Dieses Projekt hat eine relativ technischen Charakter. Es zeigt die Steuerung von Elementen Modell ...
+   						</html:div>
+
+					</VBox>					   
+
+					<VBox>			
+						<html:div class="MattesDesignTextH3">
+							On Board Menu
+						</html:div>
+						<Image src="{ui>/imageMenu}" width="100%" press=".onPressNavMenuButton">
+							<layoutData>
+								<l:GridData
+									span="L6 M12 S9"
+								/>
+							</layoutData>						
+						</Image>	
+						<html:div class="MattesDesignTextStd">
+							Auf Timeless Flight Flügen erhalten Sie schmackhafte Menüs sowie Kalt- und Warmgetränke.
+   						</html:div>
+						<Button id="Men01Video_Cat01_Button" 
+							text="Zur Speise- und Getränkekarte" 
+							type="Transparent" press=".onPressNavMenuButton">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow" />
+							</layoutData>
+						</Button>								   
+
+					</VBox>			
+				</l:content>
+			</l:Grid>										
+		</l:VerticalLayout>		
+<!--
+				<controls:ThreeSceneManager class="threeCylinderGeometry">
+ 									
+				</controls:ThreeSceneManager>					
+-->								
+			</l:VerticalLayout>		
+			
+		</content>			
+    </Page>		
+</mvc:View>

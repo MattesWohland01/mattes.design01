@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--
+		<meta name="Access-Control-Allow-Origin" content="*">	
+			data-sap-ui-theme="sap_belize"		
+			data-sap-ui-frameOptions='allow'		
+-->				
+		<title>mattes design</title>
+		<!-- Bootstrap the UI5 core library -->
+		<script id="sap-ui-bootstrap"
+			src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.ushell, sap.collaboration, sap.m, sap.ui.layout"
+			data-sap-ui-theme="sap_fiori_3"
+			data-sap-ui-bindingSyntax="complex"
+			data-sap-ui-language="en"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-async="true"			
+			data-sap-ui-preload="async"
+			data-sap-ui-frameOptions="trusted"	
+			data-sap-ui-onInit="module:sap/ui/core/ComponentSupport"					
+			data-sap-ui-resourceroots='{
+											"ui5.control": "./control",			
+											"wohland.de": "./"}'
+
+			> 
+			// NON-SECURE setting for testing environment
+		</script>
+		<link href="./css/style.css" rel="stylesheet" type="text/css"/>
+		<script>
+            sap.ui.getCore().attachInit(function() {
+                sap.ui.require([
+                    "sap/m/Shell",
+                    "sap/ui/core/ComponentContainer"
+                ], function (Shell, ComponentContainer) {
+                    new Shell({
+                        app: new ComponentContainer({
+                            height: "100%",
+                            name: "wohland.de"
+                        })
+                    }).placeAt("content");
+                });
+            });
+        </script>
+
+	</head>
+
+	<!-- UI Content -->
+	<body class="sapUiBody" id="content"></body>
+</html>

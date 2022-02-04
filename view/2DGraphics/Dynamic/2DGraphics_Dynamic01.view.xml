@@ -1,0 +1,109 @@
+<mvc:View
+	controllerName="wohland.de.controller.2DGraphics.Dynamic.2DGraphics_Dynamic01"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:controls="wohland.de.controls"
+    xmlns="sap.m"	
+	xmlns:l="sap.ui.layout" 
+	xmlns:f="sap.f"
+	xmlns:grid="sap.ui.layout.cssgrid"	
+	xmlns:card="sap.f.cards"
+	xmlns:core="sap.ui.core"
+	xmlns:html="http://www.w3.org/1999/xhtml"		
+	displayBlock="true"
+	height="100%"		
+  >
+	<ScrollContainer
+		height="100%"
+		width="100%"
+		vertical="true"
+		horizontal="false"
+		focusable="true">
+<!--
+sapUiTinyMargin 
+
+-->		
+<!--
+ 		<l:Grid hSpacing="0" vSpacing="0" binding="{/InformationCollection}"
+			class="OnBoardMenuBar" defaultSpan="XL12 L2 M2 S12" >
+			<Button id="navProduktfotografieButton" 
+				class="sapUiSmallMarginLeft"
+				icon="sap-icon://menu2"
+		    	press=".handleUserNamePress">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="NeverOverflow" />
+				</layoutData>
+			</Button>	
+			<core:HTML content='&lt;article class=&quot;stylePageLayout&quot;&gt;&lt;/article&gt;' />			
+			<Button
+				class="sapUiSmallMarginLeft"
+				icon="sap-icon://information"
+		    	press=".handleMenuInfoPress">
+			</Button>	
+		</l:Grid>	
+-->		
+		<grid:CSSGrid
+			id="grid1"
+			class="MattesDesignMenuBar" 			
+			gridTemplateColumns="1fr 10fr  10fr 1fr 1fr"
+			gridTemplateRows="50px"
+			gridGap="1rem .2rem">
+			<Button
+				class="sapUiSmallMarginLeft"
+				icon="sap-icon://menu2"
+		    	press=".handleMenuLeftPress">
+			</Button>
+			<core:HTML content='&lt;article class=&quot;stylePageLayout&quot;&gt;&lt;/article&gt;' />						
+			<core:HTML content='&lt;article class=&quot;stylePageLayout&quot;&gt;&lt;/article&gt;' />			
+			<Button
+				class="sapUiSmallMarginLeft"
+				text="Impressum"
+		    	press=".onPressNavImpressumButton">
+			</Button>			
+
+			<Button
+				class="sapUiSmallMarginLeft"
+				icon="sap-icon://information"
+		    	press=".handleMenuInfoPress">
+			</Button>	
+		</grid:CSSGrid>
+
+<!--
+
+class="sapUiMediumMargin"
+-->			
+	<f:Card class="sapUiTinyMargin" width="98%">
+		<f:header>
+			<card:Header
+				title="Flugverbindungen"
+				/>
+		</f:header>
+		<f:content>
+			<html:table >
+				<html:tr>						
+					<html:td style="width=100%">						
+						<html:div class="OnBoardDelightsTextH4 OnBoardDelightsTinyPaddingLeft">
+							Zwischen allen wichtigen europäischen Flughäfen pflegen wir Verbindungen.
+						</html:div>
+					</html:td>												   
+				</html:tr>	
+				<html:tr>						
+					<html:td style="width=100%">						
+						<controls:D3_FlightConnections>
+						</controls:D3_FlightConnections>
+					</html:td>												   
+				</html:tr>	
+			</html:table>		
+		</f:content>
+	</f:Card>
+	</ScrollContainer>	
+<!--
+	<Page
+		title="Flight Connections"
+		showNavButton="true"
+		navButtonPress="onBack">
+					<controls:D3_FlightConnections>
+
+					</controls:D3_FlightConnections>
+	</Page>
+-->
+</mvc:View>

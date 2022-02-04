@@ -1,0 +1,13 @@
+{
+  "mockpreview": {
+    "mockUri": "/sap/opu/odata/sap/SEPMRA_SHOP/",
+    "metadataFilePath": "localService/metadata.xml",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false,
+    "mockRequestsFilePath": ""
+  },
+  "deploy": {
+    "destination": "MW1",
+    "name": "ZDEMO_SHOP"
+  }
+}

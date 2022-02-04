@@ -1,0 +1,30 @@
+{
+	"InformationCollection" : [
+		{
+			"introText1" : "Produkfotografie - Schlüssel für den Kaufimpuls des Online-Kunden",
+			"introText2" : "Die Anwendung ist Teil der Gesamtanwendung 'Traveling Europe'. ",
+			"introText3" : "Ziel der  Anwendung ist die Demonstration von Techniken moderner, skalierbarer Webanwendungen.",
+			"introText4" : "Auf dem Frontend haben sich SinglePage-Anwendungen, die auch auf mobilen Geräten laufen etabliert. Als Werkzeuge sind hier insbesondere SAPUI5, Angular und Ionic zu nennen.",			
+			"introText5" : "Auf dem Backend sind vielfach Paas (Platform as a Service) vertreten. Sie bieten die Möglichkeit skalierbare, ausfallsichere Systeme zu designen.",						
+			"introText6" : "Das vorliegende SAPUI5-Element zeigt den SAP-Ansatz für Frontend-Anwendungen, die responsible, also für den Einsatz auf nahezu jedem Gerät lauffähig designed sind.",	
+			"introText7" : "Es zeigt einige SAP-spezifische Features, zum Beispiel moderne Fiori-Controls oder Datenbeschaffung über OData.",				
+			"Description1" : "Navigation zwischen Komponenten",
+			"Description2" : "When the screen is further reduced to 'Medium' or 'Tablet', the image rendered in the new row is made invisible by using the property 'visibleOnMedium=false' of the GridData control and this image is visible again when the screen size if further reduced to 'Small' or 'Mobile'.",
+			"ProductPicUrl": "img/20200813_Orga02_Kamera02_02.jpg",
+			"ProductPicUrl2": "img/HT-1010.jpg"
+		},
+		{
+			"introText1" : "Die Musteranwendung SAPUI5 zeigt",
+			"introText2" : "Die Anwendung ist Teil der Gesamtanwendung 'Traveling Europe'. ",
+			"introText3" : "Ziel der  Anwendung ist die Demonstration von Techniken moderner, skalierbarer Webanwendungen.",
+			"introText4" : "Auf dem Frontend haben sich SinglePage-Anwendungen, die auch auf mobilen Geräten laufen etabliert. Als Werkzeuge sind hier insbesondere SAPUI5, Angular und Ionic zu nennen.",			
+			"introText5" : "Auf dem Backend sind vielfach Paas (Platform as a Service) vertreten. Sie bieten die Möglichkeit skalierbare, ausfallsichere Systeme zu designen.",						
+			"introText6" : "Das vorliegende SAPUI5-Element zeigt den SAP-Ansatz für Frontend-Anwendungen, die responsible, also für den Einsatz auf nahezu jedem Gerät lauffähig designed sind.",	
+			"introText7" : "Es zeigt einige SAP-spezifische Features, zum Beispiel moderne Fiori-Controls oder Datenbeschaffung über OData.",				
+			"Description1" : "Navigation zwischen Komponenten",
+			"Description2" : "When the screen is further reduced to 'Medium' or 'Tablet', the image rendered in the new row is made invisible by using the property 'visibleOnMedium=false' of the GridData control and this image is visible again when the screen size if further reduced to 'Small' or 'Mobile'.",
+			"ProductPicUrl": "img/HT-1010.jpg",
+			"ProductPicUrl2": "img/HT-1010.jpg"
+		}
+	]	
+}

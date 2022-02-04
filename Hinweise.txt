@@ -1,0 +1,25 @@
+SAPUI-Classic05 mit SVG-Image-Injector
+
+Frühere SAP_FIORI_ReferenceApp_Shop05
+mit integrierte SAPUI-Classic04
+
+Übernahme aus WebIDE
+
+Lauffähige Anpassung mit Mockserver (index_Mockserver.html)
+
+wie Shop03 mit Anpassungen namespace (wohland.de), i18n
+Controller und Views in 'shop'-Verzeichnisse ausgelagert.
+
+--------------------------------------------------------
+
+Features :
+SAP-Beispiel mit Artikelliste 
+Warenkorb, Filter, Master-Detail, Tabs
+
+Mit Unit-test, Integration-test-Suite
+
+https://blogs.sap.com/2014/12/17/detailed-description-reference-app-shop/
+https://blogs.sap.com/2014/12/03/fiori-reference-apps-step-by-step-guide/
+https://blogs.sap.com/2014/11/24/fiori-reference-apps/
+
+file->New->Project from Sample Application

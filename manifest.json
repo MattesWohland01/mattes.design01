@@ -1,0 +1,217 @@
+{
+	"_version": "1.9.0",
+	"sap.app": {
+		"id": "wohland.de",
+		"type": "application",
+		"resources": "resources.json",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"subTitle": "{{shellSubTitle}}",
+		"tags": {
+			"keywords": [
+				"{{xfld.keyWord1}}",
+				"{{xfld.keyWord2}}"
+			]
+		},
+		"applicationVersion": {
+			"version": "3.1.0"
+		},
+		"ach": "BC-SRV-NWD-FRA",
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/SEPMRA_SHOP/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "sap.ui.ui5-template-plugin.1worklist",
+			"version": "1.32.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://Fiori6/F0866",
+			"favIcon": "icon/F0866_My_Shops.ico",
+			"phone": "icon/launchicon/57_iPhone_Desktop_Launch.png",
+			"phone@2": "icon/launchicon/114_iPhone-Retina_Web_Clip.png",
+			"tablet": "icon/launchicon/72_iPad_Desktop_Launch.png",
+			"tablet@2": "icon/launchicon/144_iPad_Retina_Web_Clip.png"
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "wohland.de.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"componentName": "wohland.de",
+		"dependencies": {
+			"minUI5Version": "1.52.15",
+			"libs": {
+				"sap.ui.fl": {
+					"lazy": true
+				},
+				"sap.ui.core": {
+					"lazy": false
+				},
+				"sap.m": {
+					"lazy": false
+				},
+				"sap.f": {
+					"lazy": false
+				},
+				"sap.ushell": {
+					"lazy": false
+				},
+				"sap.ui.layout": {
+					"lazy": false
+				},
+				"sap.ui.comp": {
+					"lazy": false
+				},
+				"sap.uxap": {
+					"lazy": false
+				},
+				"sap.ui.generic.app": {
+					"lazy": false
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"services": {
+			"ShellUIService": {
+				"factoryName": "sap.ushell.ui5service.ShellUIService",
+				"lazy": false,
+				"settings": {
+					"setHierarchy": "auto",
+					"setTitle": "auto"
+				}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "wohland.de.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true,
+				"settings": {
+					"metadataUrlParams": {
+						"sap-documentation": "heading",
+						"sap-value-list": "none"
+					},
+					"defaultCountMode": "Inline"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "wohland.de.view",
+				"controlId": "shopApp",
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": [
+						"productList",
+						"emptyPage"
+					]
+				}
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "homeRoute",
+					"target": "homeTarget"
+				}, 	
+				{
+					"pattern" : "agenda",
+					"name"    : "agendaRoute", 				
+					"target"  : "agendaTarget"
+				}                    
+				,
+				{
+					"pattern" : "impressum",
+					"name"    : "impressumRoute", 				
+					"target"  : "impressumTarget"
+				}                    
+				,
+				{
+					"pattern" : "graphicsintegration",
+					"name"    : "graphicsintegrationRoute",								
+					"target"  : "graphicsintegrationTarget"
+				}
+				,
+				{
+					"pattern" : "2dgraphicsdynamic01",
+					"name"    : "2dgraphicsdynamic01Route",								
+					"target"  : "2dgraphicsdynamic01Target"
+				}
+				,
+				{
+					"pattern" : "3dgraphicsdynamic01",
+					"name"    : "3dgraphicsdynamic01Route",								
+					"target"  : "3dgraphicsdynamic01Target"
+				}
+
+			],
+			"targets": {
+				"homeTarget": {
+					"viewName": "Home",
+					"viewLevel" : 1
+				},	
+				"agendaTarget": {
+					"viewName": "Agenda.Agenda"
+				}
+				, 		
+				"impressumTarget": {
+					"viewName": "Impressum.Impressum"
+				}
+				,
+				"graphicsintegrationTarget": 
+				{
+				  "viewName": "GraphicsIntegration.GraphicsIntegration"
+				}
+				,
+				"2dgraphicsdynamic01Target": 
+				{
+				  "viewName": "2DGraphics.Dynamic.2DGraphics_Dynamic01"
+				}
+				,
+				"3dgraphicsdynamic01Target": 
+				{
+				  "viewName": "3DGraphics.Dynamic.3DGraphics_Dynamic01"
+				}
+
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zdemo_shop/webapp",
+		"_version": "1.1.0"
+	},
+	"sap.fiori": {
+		"registrationIds": [
+			"F0866"
+		],
+		"archeType": "transactional"
+	}
+}

@@ -1,0 +1,245 @@
+<mvc:View 
+    controllerName="wohland.de.controller.Home" 
+    xmlns="sap.m" 
+	xmlns:core="sap.ui.core"		
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout" 
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:unified="sap.ui.unified"	
+	xmlns:html="http://www.w3.org/1999/xhtml"	
+   >
+<!--
+		showHeader="false"        
+        showNavButton="true" 
+        title="FullScreen Page" 		
+		class="sapUiContentPadding"        		
+-->
+    <Page 
+        id="page"
+		enableScrolling="true"     
+		showHeader="false"        		   
+        navButtonPress=".onBackPressed"
+		>
+		<grid:CSSGrid
+			id="grid1"
+			class="MattesDesignMenuBar" 			
+			gridTemplateColumns="1fr 10fr  10fr 1fr 1fr"
+			gridTemplateRows="50px"
+			gridGap="1rem .2rem">
+			<Button
+				class="sapUiSmallMarginLeft"
+				icon="sap-icon://menu2"
+		    	press=".handleMenuLeftPress">
+			</Button>
+			<core:HTML content='&lt;article class=&quot;stylePageLayout&quot;&gt;&lt;/article&gt;' />						
+			<core:HTML content='&lt;article class=&quot;stylePageLayout&quot;&gt;&lt;/article&gt;' />						
+			<Button
+				class="sapUiSmallMarginLeft"
+				text="Impressum"
+		    	press=".onPressNavImpressumButton">
+			</Button>			
+
+			<Button
+				class="sapUiSmallMarginLeft"
+				icon="sap-icon://information"
+		    	press=".handleMenuInfoPress">
+			</Button>	
+		</grid:CSSGrid>
+
+
+		<l:VerticalLayout class="sapUiTinyMargin">
+			<l:Grid
+				class="sapUiSmallMarginTop"
+				hSpacing="2"
+				defaultSpan="L6 M12 S12"
+			>
+				<l:content>				   			
+					<html:div class="MattesDesignTextH1">
+						mattes design	
+	 				</html:div>
+					<VBox >
+						<html:div class="MattesDesignTextH2">
+							where software meets design
+						</html:div>
+						<html:div class="MattesDesignTextStd">
+							<html:br/>
+							Effiziente Software, die Kundenprozesse optimal abbildet und größtmöglichen Nutzen spendet ist das eine.
+							<html:br/>
+							Oberflächen und Benutzerintentionen zu optimieren, das andere
+							<html:br/>							
+							Wir setzen auf höchstmögliche Bedienbarkeit der Anwendungen. 
+							<html:br/>														
+							<html:br/>
+   						</html:div>
+						<layoutData>
+							<l:GridData
+								span="L12 M12 S12"
+								linebreakL="true"
+								linebreakM="true"
+								linebreakS="true" />
+						</layoutData>											
+					</VBox>		
+					<VBox>
+						<html:div class="MattesDesignTextH3">
+							UX at Maximum
+   						</html:div>
+						<html:div class="MattesDesignTextStd">
+							Das Hilfesystem gibt Ihnen Hinweise, welche besonderen Features bei der SAPUI5-Entwicklung verwendet wurden. 
+   						</html:div>
+						<layoutData>
+							<l:GridData
+								span="L12 M12 S12"
+								linebreakL="true"
+								linebreakM="true"
+								linebreakS="true" />
+						</layoutData>	
+						<html:div class="MattesDesignTextH4">
+							Sie erreichen die Hilfe über den i-Button bzw.									
+   						</html:div>
+						<Button 
+							text="hier." 
+							type="Transparent" press=".onPressNavAgendaButton">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow" />
+							</layoutData>
+						</Button>								   
+
+
+					</VBox>					   
+
+
+				</l:content>
+			</l:Grid>										
+		</l:VerticalLayout>					
+
+		<l:VerticalLayout>       
+			<l:Grid
+				class="sapUiSmallMarginTop"
+				hSpacing="2"
+				defaultSpan="L6 M12 S12"
+			>
+				<l:content>				 			
+					<VBox>			
+						<html:div class="OnBoardMenuTextH3">
+							On Board Menu
+						</html:div>
+						<Image src="{ui>/imageMenu}" width="100%" press=".onPressNavMenuButton">
+							<layoutData>
+								<l:GridData
+									span="L6 M12 S9"
+								/>
+							</layoutData>						
+						</Image>	
+						<html:div class="OnBoardMenuTextStd">
+							Auf Timeless Flight Flügen erhalten Sie schmackhafte Menüs sowie Kalt- und Warmgetränke.
+   						</html:div>
+						<Button id="Men01Video_Cat01_Button" 
+							text="Zur Speise- und Getränkekarte" 
+							type="Transparent" press=".onPressNavMenuButton">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow" />
+							</layoutData>
+						</Button>								   
+
+					</VBox>			
+					<VBox>									   					
+						<html:div class="OnBoardMenuTextH3">
+							On Board Infosystem
+ 						</html:div>
+
+						<Image src="{ui>/imageInfo}" width="100%" press=".onPressNavChartsButton">
+							<layoutData>
+								<l:GridData
+									span="L6 M12 S9"
+								/>
+							</layoutData>						
+						</Image>	
+						<html:div class="OnBoardMenuTextStd">
+							Mit unserem On Board Infosystem erhalten Sie interessante Informationen über unsere Flugpläne, die aktuellen Flugdaten und Ihren Flugzeugtyp.
+   						</html:div>
+						<Button id="Men02Video_Cat01_Button" 
+							text="Zum Infosystem" 
+							type="Transparent" press=".onPressNavChartsButton">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow" />
+							</layoutData>
+						</Button>								   
+					</VBox>					   
+				</l:content>						
+			</l:Grid>								   
+</l:VerticalLayout>	
+		<l:VerticalLayout>       
+			<l:Grid
+				class="sapUiSmallMarginTop"
+				hSpacing="2"
+				defaultSpan="L6 M12 S12"
+			>
+				<l:content>				 			
+					<VBox>			
+						<html:div class="OnBoardMenuTextH3">
+							On Board Chat
+						</html:div>
+<!--
+						<Image src="/img/TimelessFlight_Chat01.png" width="100%" press=".onPressNavChatButton">
+width="36rem" height="16rem"
+-->												
+						<Image width="100%" src="{ui>/imageChat}" press=".onPressNavChatButton">												
+							<layoutData>
+								<l:GridData
+									span="L6 M12 S9"
+								/>
+							</layoutData>						
+						</Image>	
+						<html:div class="OnBoardMenuTextStd">
+							Unser On Board Chat ermöglicht Ihnen, mit den anderen Fluggästen in Verbindung zu treten.
+   						</html:div>
+<!--
+ id="Men01Video_Cat01_Button" 						   
+ -->
+						<Button
+						
+							text="Zum Chat" 
+							type="Transparent" press=".onPressNavChatButton">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow" />
+							</layoutData>
+						</Button>								   
+
+					</VBox>			
+					<VBox>									   					
+						<html:div class="OnBoardMenuTextH3">
+							Traveling Europe (coming soon)
+ 						</html:div>
+
+						<Image src="{ui>/imageTE}" width="100%" press=".onPressNavToDrinks">
+							<layoutData>
+								<l:GridData
+									span="L6 M12 S9"
+								/>
+							</layoutData>						
+						</Image>	
+						<html:div class="OnBoardMenuTextStd">
+							Kennen Sie sich in Europa aus ? Unser kurzweiliges Wissensspiel testet und erweitert Ihr Wissen über Europa. Sie können in Gruppen oder allein spielen.
+   						</html:div>
+<!--
+
+id="Men02Video_Cat01_Button" 
+-->						   
+						<Button 
+							text="Zum Spiel" 
+							type="Transparent" press=".onPressNavToDrinks">
+							<layoutData>
+								<OverflowToolbarLayoutData priority="NeverOverflow" />
+							</layoutData>
+						</Button>								   
+					</VBox>					   
+				</l:content>						
+			</l:Grid>								   
+						
+
+			</l:VerticalLayout>		
+    </Page>
+
+</mvc:View>

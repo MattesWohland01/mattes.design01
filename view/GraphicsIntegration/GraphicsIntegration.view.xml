@@ -1,0 +1,227 @@
+<mvc:View
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout" 
+	xmlns:f="sap.ui.layout.form"
+	xmlns:grid="sap.ui.layout.cssgrid"		
+	xmlns:unified="sap.ui.unified"	
+	xmlns:html="http://www.w3.org/1999/xhtml"	
+	xmlns="sap.m"  
+  controllerName="wohland.de.controller.GraphicsIntegration.GraphicsIntegration"
+  >
+    <Page 
+        id="page"
+		enableScrolling="true"     		
+		showHeader="false"        		   
+        navButtonPress=".onBackPressed"
+		>
+		<content>		
+<!-- Menuleiste -->		
+			<grid:CSSGrid
+				id="grid1"
+				class="MattesDesignMenuBar" 			
+				gridTemplateColumns="1fr 10fr  10fr 1fr 1fr"
+				gridTemplateRows="50px"
+				gridGap="1rem .2rem">
+				<Button
+					class="sapUiSmallMarginLeft"
+					icon="sap-icon://menu2"
+		    		press=".handleMenuLeftPress">
+				</Button>
+				<core:HTML content='&lt;article class=&quot;stylePageLayout&quot;&gt;&lt;/article&gt;' />						
+				<core:HTML content='&lt;article class=&quot;stylePageLayout&quot;&gt;&lt;/article&gt;' />			
+				<Button
+					class="sapUiSmallMarginLeft"
+					text="Impressum"
+		    		press=".onPressNavImpressumButton">
+				</Button>			
+
+				<Button
+					class="sapUiSmallMarginLeft"
+					icon="sap-icon://information"
+		    		press=".handleMenuInfoPress">
+				</Button>	
+			</grid:CSSGrid>
+
+
+		  	<l:VerticalLayout  class="sapUiTinyMarginEnd">
+<!-- obere Buttonleiste -->			  
+  				<l:HorizontalLayout allowWrapping="true"  class="myMarginLeft30 ">	
+					<Button id="Video_Cat01_Button" 
+						text="D3 Animation" 
+
+						class="MattesDesignMenuBar"
+						press=".onPressNav2DGraphicsDynamic01Button">
+						<layoutData>
+							<OverflowToolbarLayoutData priority="NeverOverflow" />
+						</layoutData>
+					</Button>			
+					<Button 
+						id="Video_Cat02_Button" 
+						text="ThreeJS Integration" 
+
+						press=".onPressNav3DGraphicsDynamic01Button">
+						<layoutData>
+							<OverflowToolbarLayoutData priority="NeverOverflow" />
+						</layoutData>
+					</Button>	
+
+					<Button 
+						id="Video_Cat03_Button" 
+						text="SAPUI5 3D Viewer" 
+						press=".onPressNav2DGraphicsDynamic03Button">
+						<layoutData>
+							<OverflowToolbarLayoutData priority="NeverOverflow" />
+						</layoutData>
+					</Button>		
+				</l:HorizontalLayout>	
+
+				<l:VerticalLayout class="sapUiTinyMargin">
+					<l:Grid
+						class="sapUiSmallMarginTop"
+						hSpacing="2"
+						defaultSpan="L12 M12 S12"
+					>
+						<l:content>				   			
+							<html:div class="MattesDesignTextH1">
+								Graphics Integration
+	 						</html:div>
+							<VBox >
+								<html:div class="MattesDesignTextH2">
+									Steigerung des Informationswertes 
+								</html:div>
+								<html:div class="MattesDesignTextStd">
+									<html:br/>
+										- Ihre Anwendung kann mehr
+									<html:br/>
+										- Lernen Sie unser Angebot kennen.
+									<html:br/>							
+										- Grafik Integration auf allen Ebenen
+									<html:br/>							
+										- SAPUI5 mit Mehrwert
+									<html:br/>
+   								</html:div>
+								<layoutData>
+									<l:GridData
+										span="L12 M12 S12"
+										linebreakL="true"
+										linebreakM="true"
+										linebreakS="true" />
+								</layoutData>											
+							</VBox>		
+						</l:content>
+					</l:Grid>										
+				</l:VerticalLayout>					
+
+				<l:HorizontalLayout class="sapUiContentPadding"
+		 		>	
+ 					<l:VerticalLayout  class="sapUiTinyMarginEnd">
+						<html:div class="MattesDesignTextH3">
+							3D Grafik 
+	 					</html:div>
+						<VBox >
+								<html:div class="MattesDesignTextStd">
+									<html:br/>
+										- Produktpräsentation 
+									<html:br/>
+										- Dashboards
+									<html:br/>							
+										- Grafik Integration auf allen Ebenen
+									<html:br/>							
+										- Ihr Flugzeug in 3D Sicht
+									<html:br/>
+   								</html:div>						
+							<layoutData>
+								<l:GridData
+									span="L12 M12 S12"
+									linebreakL="true"
+									linebreakM="true"
+									linebreakS="true" />
+							</layoutData>											
+						</VBox>					   
+					</l:VerticalLayout>		
+
+ 					<l:VerticalLayout  class="sapUiTinyMarginEnd">
+						<html:div class="MattesDesignTextH3">
+							2D Grafik 
+	 					</html:div>
+						<VBox >
+								<html:div class="MattesDesignTextStd">
+									<html:br/>
+										- Produktpräsentation 
+									<html:br/>
+										- Dashboards
+									<html:br/>							
+										- Grafik Integration auf allen Ebenen
+									<html:br/>							
+										- Ihr Flugzeug in 3D Sicht
+									<html:br/>
+   								</html:div>						
+							<layoutData>
+								<l:GridData
+									span="L12 M12 S12"
+									linebreakL="true"
+									linebreakM="true"
+									linebreakS="true" />
+							</layoutData>											
+						</VBox>					   
+					</l:VerticalLayout>		
+
+ 					<l:VerticalLayout  class="sapUiTinyMarginEnd">
+						<html:div class="MattesDesignTextH3">
+							Photography
+	 					</html:div>
+						<VBox >
+								<html:div class="MattesDesignTextStd">
+									<html:br/>
+										- Produktpräsentation 
+									<html:br/>
+										- Dashboards
+									<html:br/>							
+										- Grafik Integration auf allen Ebenen
+									<html:br/>							
+										- Ihr Flugzeug in 3D Sicht
+									<html:br/>
+   								</html:div>						
+							<layoutData>
+								<l:GridData
+									span="L12 M12 S12"
+									linebreakL="true"
+									linebreakM="true"
+									linebreakS="true" />
+							</layoutData>											
+						</VBox>					   
+					</l:VerticalLayout>		
+
+ 					<l:VerticalLayout  class="sapUiTinyMarginEnd">
+						<html:div class="MattesDesignTextH3">
+							Oberflächengestaltung
+	 					</html:div>
+						<VBox >
+								<html:div class="MattesDesignTextStd">
+									<html:br/>
+										- Produktpräsentation 
+									<html:br/>
+										- Dashboards
+									<html:br/>							
+										- Grafik Integration auf allen Ebenen
+									<html:br/>							
+										- Ihr Flugzeug in 3D Sicht
+									<html:br/>
+   								</html:div>						
+							<layoutData>
+								<l:GridData
+									span="L12 M12 S12"
+									linebreakL="true"
+									linebreakM="true"
+									linebreakS="true" />
+							</layoutData>											
+						</VBox>					   
+					</l:VerticalLayout>		
+
+
+				</l:HorizontalLayout>	
+			</l:VerticalLayout>		
+		</content>			
+    </Page>		
+</mvc:View>

@@ -1,0 +1,128 @@
+<mvc:View 
+controllerName="wohland.de.controller.Home"
+	xmlns:l="sap.ui.layout" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:card="sap.f.cards"
+	xmlns:grid="sap.ui.layout.cssgrid"	
+	xmlns:core="sap.ui.core"
+	displayBlock="true"
+	height="100%"	
+	>
+	<grid:CSSGrid
+		id="grid1"
+		class="OnBoardMenuBar" 			
+		gridTemplateColumns="1fr 10fr 10fr 1fr 1fr"
+		gridTemplateRows="50px"
+		gridGap="1rem .2rem">
+		<Button
+			class="sapUiSmallMarginLeft"
+			icon="sap-icon://menu2"
+	    	press=".handleMenuLeftPress">
+		</Button>
+		<core:HTML content='&lt;article class=&quot;stylePageLayout&quot;&gt;&lt;/article&gt;' />						
+		<core:HTML content='&lt;article class=&quot;stylePageLayout&quot;&gt;&lt;/article&gt;' />			
+		<Button
+			class="sapUiSmallMarginLeft"
+			text="Impressum"
+	    	press=".onPressNavImpressumButton">
+		</Button>			
+		<Button
+			class="sapUiSmallMarginLeft"
+			icon="sap-icon://information"
+	    	press=".handleMenuInfoPress">
+		</Button>	
+	</grid:CSSGrid>
+
+	<ScrollContainer
+		height="100%"
+		width="100%"
+		vertical="true"
+		focusable="true">
+		<f:Card class="sapUiMediumMargin" width="80%">
+			<f:header>
+				<card:Header
+					title="Impressum"
+				/>
+			</f:header>
+			<f:content>
+				<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+					<Title level="H2" text="Matthias Wohland-Meik" />
+					<Title level="H3" text="Anschrift" />							
+					<Text text="Schloßstr. 30" />
+					<Text text="53773 Hennef" />
+					<Text text="Germany" />		
+					<Text text="" />									
+					<Title level="H3" text="E-Mail" />	
+					<Text text="kontakt@wohland.de" />					
+					<Text text="" />																
+					<Title wrapping="true" level="H4" text="Inhaltlich Verantwortlicher gemäß § 10 Absatz 3 MDStV" />	
+					<Text text="Matthias Wohland-Meik" />	
+					<Text text="" />																
+					<Title level="H3" text="Haftungshinweis" />	
+					<Text wrapping="true" text="Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links." />	
+					<Text wrapping="true" text="Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich." />								
+				</VBox>
+			</f:content>
+		</f:Card>
+
+		<f:Card class="sapUiMediumMargin" width="80%">
+			<f:header>
+				<card:Header
+					title="Bildnachweis"
+				/>
+			</f:header>
+			<f:content>
+				<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+					<Text text="SVG-Grafiken : Mattes Wohland" />							
+					<Text text="" />																							
+					<Text text="Fotos (außer 5529776_Zuschnitt_j12.jpg, OW45R51_d_Zuschnitt.jpg ) : Mattes Wohland" />														
+					<Text text="* 5529776_Zuschnitt_j12.jpg : Designed by Freepik" />																					
+					<Text text="* OW45R51_d_Zuschnitt.jpg : Designed by Freepik" />																				
+					<Text text="Fotos (5529776_Zuschnitt_j12.jpg, OW45R51_d_Zuschnitt.jpg) Überarbeitung : Mattes Wohland" />	
+
+					<Text text="Modell A320 : Matthew Anderson 3dwarehouse.sketchup.com" />							
+																																	
+				</VBox>
+			</f:content>
+		</f:Card>
+
+		<f:Card class="sapUiMediumMargin" width="80%">
+			<f:header>
+				<card:Header title="Vita" />
+			</f:header>
+			<f:content>
+				<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+					<Title wrapping="true" width="80%" text="Seit 1993 Entwicklung von Datenbank-Anwendungen mit C, Informix-4GL, Oracle sowie Erstellung verschiedener Lösungen mit Visual Basic, Visual Basic for Applications" />
+					<Text text="" />			
+					<Title wrapping="true" width="80%" text="Seit 1998 als selbständiger Softwareberater im SAP SD-Modul verantwortlich für die Entwicklung von Schnittstellen zur Kopplung von SAP-InstanzenEntwicklung von Datenbank-Anwendungen mit C, Informix-4GL, Oracle sowie Erstellung verschiedener Lösungen mit Visual Basic, Visual Basic for Applications" />							
+					<Title wrapping="true" width="80%" text="Monitoring des Datenaustauschs zwischen beteiligten Maschinen" />														
+					<Text text="" />			
+					<Title wrapping="true" width="80%" text="Entwicklung modulspezifischer Lösungen SD in ABAP wie Rabattabrechnungen, Liefer- und Fakturastatus und Kundenumsatzvergleiche" />																					
+					<Text text="" />			
+					<Title wrapping="true" width="80%" text="Entwicklung eines Produktes für verschiedenen Formen des betrieblichen Verbesserungsmanagements wie KAIZEN, Ideenmanagement und Beschwerdemanagement auf der Basis von HTML, Java und relationalen Datenbanken" />																					
+					<Text text="" />		
+					<Title  wrapping="true" width="80%" text="Geschäftsführung eines deutschen und eines slowakischen Unternehmens für die Software-Erstellung" />		
+					<Text text="" />									
+					<Title  wrapping="true" width="80%" text="Seit 2012 in einem Projekt mit der Speicherung und Recherche komplexer Strukturen im Bereich der Archivierung von Medie bei einer grßen Sendeanstalt" />							
+					<Title  wrapping="true" width="80%" text="Verwendete Werkzeuge : SAP-ABAP, ABAP-OO, BSP, SAP Process-Integration, XML,XSLT,HTML, CSS, javascript" />													
+							
+					<Text text="" />																
+					<Title  wrapping="true" width="80%" text="Entwicklung von Schnittstellen zur Abfrage von Datenbeständen inclusive Parser für eine objektorientierte Abfragesprache zwichen Medienarchiven unterschiedlicher Bauart" />																				
+					<Title  wrapping="true" width="80%" text="Mapping der Objektmodelle der beteiligten Archive" />																				
+					<Text text="" />											
+					<Title  wrapping="true" width="80%" text="Datenmigration von SAP in eine Java-ORACLE basierte Umgebung sowie eine containerisierte Microservicelandschaft" />																				
+					<Text text="" />																		
+					<Title  wrapping="true" width="80%" text="Erstellung und Betreuung von Schnittstellen zu Satellitensystemen des Archivs sowie zu anderen beteiligten Archiven" />																											
+					<Title  wrapping="true" width="80%" text="u.a. Entwicklung eines Monitoring und Pflegearbeitsplatzes für die Verifikation von Musikverwendungsnachweisen sowie der Kontrolle der Übermittlung der Meldungen an die Verwertungsgesellschaften" />																																		
+					<Text text="" />																									
+					<Title  wrapping="true" width="80%" text="Entwicklung einer Auftragssteuerung für Audiomining-Aufträge von verschiedenen Rundfunkanstalten" />																																		
+					<Text text="" />																									
+					<Title  wrapping="true" width="80%" text="Seit 2016 erste Erfahrungen mit Software-Technologien im Cloud-Umfeld wie Single-Page-Anwendungen, NoSQL Datenbanken, Virtualisierung, Continuous Delivery/Integration und Microservices" />								
+							
+				</VBox>
+			</f:content>
+		</f:Card>
+	</ScrollContainer>	
+</mvc:View>

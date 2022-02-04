@@ -1,0 +1,55 @@
+{
+  "cacheControl": [
+    {
+      "maxAge": 86400
+    }
+  ],
+  "routes": [
+    {
+      "path": "/sap/opu/odata",
+      "target": {
+        "type": "destination",
+        "name": "MW1",
+        "entryPath": "/sap/opu/odata"
+      },
+      "description": "MW1 Description"
+    },
+    {
+      "path": "/sap/public/bc/NWDEMO_MODEL",
+      "target": {
+        "type": "destination",
+        "name": "SAP_Gateway",
+        "entryPath": "/sap/public/bc/NWDEMO_MODEL",
+        "preferLocal": true
+      },
+      "description": "EPM Mime Picture Service"
+    },
+    {
+      "path": "/sap/bc/ui5_ui5",
+      "target": {
+        "type": "destination",
+        "name": "MW1",
+        "entryPath": "/sap/bc/ui5_ui5"
+      },
+      "description": "MW1 Description"
+    },
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    }
+  ]
+}

@@ -1,0 +1,862 @@
+<mvc:View 
+    controllerName="wohland.de.controller.Home" 
+    xmlns="sap.m" 
+	xmlns:core="sap.ui.core"	
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:t="sap.ui.table"
+	xmlns:l="sap.ui.layout" 
+	xmlns:grid="sap.ui.layout.cssgrid"
+	xmlns:f="sap.f"
+
+	xmlns:card="sap.f.cards"	
+	xmlns:unified="sap.ui.unified"	
+	xmlns:html="http://www.w3.org/1999/xhtml"	
+   >
+<!--
+
+	xmlns:f="sap.ui.layout.form"
+
+		showHeader="false"        
+        showNavButton="true" 
+        title="FullScreen Page" 		
+		class="sapUiContentPadding"        		
+-->
+    <Page 
+        id="page"
+		enableScrolling="true"     
+		showHeader="false"        		   
+        navButtonPress=".onBackPressed"
+		>
+		<grid:CSSGrid
+			id="grid1"
+			class="OnBoardMenuBar" 			
+			gridTemplateColumns="1fr 10fr  10fr 1fr 1fr"
+			gridTemplateRows="50px"
+			gridGap="1rem .2rem">
+			<Button
+				class="sapUiSmallMarginLeft"
+				icon="sap-icon://menu2"
+		    	press=".handleMenuLeftPress">
+			</Button>
+			<core:HTML content='&lt;article class=&quot;stylePageLayout&quot;&gt;&lt;/article&gt;' />						
+			<core:HTML content='&lt;article class=&quot;stylePageLayout&quot;&gt;&lt;/article&gt;' />			
+			<Button
+				class="sapUiSmallMarginLeft"
+				text="Impressum"
+		    	press=".onPressNavImpressumButton">
+			</Button>			
+
+			<Button
+				class="sapUiSmallMarginLeft"
+				icon="sap-icon://information"
+		    	press=".handleMenuInfoPress">
+			</Button>	
+		</grid:CSSGrid>
+<!--    Übersicht	-->				
+	    <Panel
+			expandable="true" 
+			expanded="true" 	
+			headerText="Übersicht"			
+		>  
+			<content>	
+				<l:VerticalLayout>
+					<l:Grid binding="{/InformationCollection}" hSpacing="0"
+						defaultSpan="XL12 L12 M12 S12"  defaultIndent="XL0 L0 M0" class="sapUiSmallMargin">		
+						<f:Card   >
+							<f:layoutData>
+								<f:GridContainerItemLayoutData minRows="8"  columns="6" />
+							</f:layoutData>
+							<f:content >
+								<VBox class="OnBoardDelightsCardTinted"  >
+<!--							
+									<l:VerticalLayout>
+										<html:table style="width=100%"  >
+											<html:tr>						
+												<html:td class="OnBoardDelightsTextH4 OnBoardDelightsLargePaddingLeft" >						
+												</html:td>												   
+												<html:td >						
+													<Image src="img/Sekt02.png"
+														densityAware="false" width="90px" height="120px">
+													</Image>			
+												</html:td>												   								
+												<html:td style="align=left">						
+												</html:td>												   
+											</html:tr>				
+										</html:table>	
+									</l:VerticalLayout>						
+-->																
+									<l:VerticalLayout class="OnBoardDelightsCardTinted">		
+										<html:table style="width=100%" class="OnBoardDelightsTableTinted" >
+											<html:tr>						
+												<html:td style="width=70%">						
+													<html:div class="OnBoardDelightsTextH4 OnBoardDelightsTinyPaddingLeft">
+														OnBoard Companion ist ein System, welches sich in ständiger Überarbeitung befindet.
+	   												</html:div>
+												</html:td>												   
+												<html:td style="align=left">						
+													<html:div class="OnBoardDelightsTextH5 OnBoardDelightsTinyPaddingLeft">
+												
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+										<html:table class="OnBoardDelightsTinyHoriSeparator"> 
+											<html:tr>						
+												<html:td style="width=50%">						
+													<html:div >
+
+						   							</html:div>
+												</html:td>												   
+												<html:td style="align=left">						
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd_Bold OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														Einige Themen befinden sich bereits im Backlog:
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														- Dokumentation SVC mit Git
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														- Dokumentation Testing
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														- Interaktive 3D-Grafiken mit ThreeJS
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														- Umstellung der Entwicklungsumgebung von WebIDE auf Visual Studio Code
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														- Verwendung von UI5-Tooling
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														- Traveling Europe (ein Trivial Pursuit-ähnliches Wissensspiel über Europa)<html:br></html:br>
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+										<html:table class="OnBoardDelightsTinyHoriSeparator"> 
+											<html:tr>						
+												<html:td style="width=50%">						
+													<html:div >
+
+				   									</html:div>
+												</html:td>												   
+												<html:td style="align=left">						
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd_Bold OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														  Die Anwendung wurde bewußt so gestaltet, dass typische Fragestellungen bei der Entwicklung von SAPUI5-Anwendungen behandelt werden.
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+										<html:table class="OnBoardDelightsTinyHoriSeparator"> 
+											<html:tr>						
+												<html:td style="width=50%">						
+													<html:div >
+
+				   									</html:div>
+												</html:td>												   
+												<html:td style="align=left">						
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td style="width=20%">						
+													<html:div class="OnBoardDelightsTextStd_Bold OnBoardDelightsTinyPaddingLeft">
+														Erfahrungen mit diesen habe ich in den folgenden Artikeln abgehandelt :
+	   												</html:div>
+												</html:td>												   
+												<html:td style="align=left">						
+													<html:div class="OnBoardDelightsTextH4 OnBoardDelightsTinyPaddingLeft">
+				   									</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+									</l:VerticalLayout>
+								</VBox>
+							</f:content>
+						</f:Card>			
+					</l:Grid>
+				</l:VerticalLayout>		
+			</content>
+   		</Panel>		
+<!--    Data Binding	-->		
+	    <Panel
+			expandable="true" 
+			expanded="false" 	
+			headerText="Data Binding, Service Anbindung, OData, CDS"			
+		>  
+			<content>		
+			<l:VerticalLayout>
+				<l:Grid binding="{/InformationCollection}" hSpacing="0"
+					defaultSpan="XL12 L12 M12 S12"  defaultIndent="XL0 L0 M0" class="sapUiSmallMargin">		
+					<f:Card   >
+						<f:layoutData>
+							<f:GridContainerItemLayoutData minRows="8"  columns="6" />
+						</f:layoutData>
+						<f:content >
+							<VBox class="OnBoardDelightsCardTinted"  >
+								<l:VerticalLayout class="OnBoardDelightsCardTinted">		
+									<html:table style="width=100%" class="OnBoardDelightsTableTinted" >
+										<html:tr>						
+											<html:td style="width=70%">						
+												<html:div class="OnBoardDelightsTextH4 OnBoardDelightsTinyPaddingLeft">
+													DataBinding mit JSON oder XML
+	   											</html:div>
+											</html:td>												   
+											<html:td style="align=left">						
+												<html:div class="OnBoardDelightsTextH5 OnBoardDelightsTinyPaddingLeft">
+												
+	   											</html:div>
+											</html:td>												   
+										</html:tr>				
+									</html:table>
+
+									<html:table class="OnBoardDelightsTinyHoriSeparator"> 
+										<html:tr>						
+											<html:td style="width=50%">						
+												<html:div >
+
+						   						</html:div>
+											</html:td>												   
+											<html:td style="align=left">						
+											</html:td>												   
+										</html:tr>				
+									</html:table>
+
+									<html:table class="OnBoardDelightsTableTinted">
+										<html:tr>						
+											<html:td >						
+												<html:div class="OnBoardDelightsTextStd_Bold OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+													Anbindung von Services über OData oder REST
+	   											</html:div>
+											</html:td>												   
+										</html:tr>				
+									</html:table>
+									<html:table class="OnBoardDelightsTableTinted">
+										<html:tr>						
+											<html:td >						
+												<html:div class="OnBoardDelightsTextStd_Bold OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+													Als Mockserver oder im Backend
+	   											</html:div>
+											</html:td>												   
+										</html:tr>				
+									</html:table>
+									<html:table class="OnBoardDelightsTableTinted">
+										<html:tr>						
+											<html:td >						
+												<html:div class="OnBoardDelightsTextStd_Bold OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+													Um ein `echtes` Look and Feel zu zeigen, wurde das Bestellsystem mit einem Mockserver versehen.
+	   											</html:div>
+											</html:td>												   
+										</html:tr>				
+									</html:table>
+
+									<html:table class="OnBoardDelightsTableTinted">
+										<html:tr>						
+											<html:td >						
+												<html:div class="OnBoardDelightsTextStd_Bold OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+													Dieser ist in der Lage, Lese- und Schreiboperationen zu simulieren
+	   											</html:div>
+											</html:td>												   
+										</html:tr>				
+									</html:table>
+								</l:VerticalLayout>
+							</VBox>
+						</f:content>
+					</f:Card>			
+				</l:Grid>
+			</l:VerticalLayout>		
+			</content>
+   		</Panel>		
+<!-- Responsive Layouting (Grids u.ä.)-->
+	    <Panel
+			expandable="true" 
+			expanded="false" 	
+			headerText="Responsive Layouting (Grids u.ä.)"			
+		>  
+			<l:VerticalLayout>
+				<l:Grid binding="{/InformationCollection}" hSpacing="0"
+						defaultSpan="XL12 L12 M12 S12"  defaultIndent="XL0 L0 M0" class="sapUiSmallMargin">		
+					<f:Card   >
+						<f:layoutData>
+							<f:GridContainerItemLayoutData minRows="8"  columns="4" />
+						</f:layoutData>
+						<f:content >
+							<VBox class="OnBoardDelightsCardTinted"  >
+								<l:VerticalLayout class="OnBoardDelightsCardTinted">		
+									<html:table style="width=100%" class="OnBoardDelightsTableTinted" >
+										<html:tr>						
+											<html:td style="width=70%">						
+												<html:div class="OnBoardDelightsTextH4 OnBoardDelightsTinyPaddingLeft">
+													Die Verwendung der SAPUI5 Anwendungen auf <html:br></html:br>verschiedenen 
+													Typen von Endgeräten macht es notwendig,<html:br></html:br>
+													die Anwendung responsive zu gestalten.
+	   											</html:div>
+											</html:td>												   
+											<html:td style="align=left">						
+												<html:div class="OnBoardDelightsTextH5 OnBoardDelightsTinyPaddingLeft">
+												
+	   											</html:div>
+											</html:td>												   
+										</html:tr>				
+									</html:table>
+
+									<html:table class="OnBoardDelightsTinyHoriSeparator"> 
+										<html:tr>						
+											<html:td style="width=50%">						
+												<html:div >
+
+						   						</html:div>
+											</html:td>												   
+											<html:td style="align=left">						
+											</html:td>												   
+										</html:tr>				
+									</html:table>
+
+									<html:table class="OnBoardDelightsTableTinted">
+										<html:tr>						
+											<html:td >						
+												<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+													In der Regel bietet sich hier die Verwendung der sap.m Bibliothek an,<html:br></html:br> die auf die Verwendung für mobile Geräte spezialisiert ist.
+	   											</html:div>
+											</html:td>												   
+										</html:tr>				
+									</html:table>
+									<html:table class="OnBoardDelightsTableTinted">
+										<html:tr>						
+											<html:td >						
+												<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+													In der Praxis ist die Verwendung dieser Bibliothek jedoch mit starken <html:br></html:br>
+													Einschränkungen verbunden, die die Verwendung weiterer Bibliotheken<html:br></html:br> 
+													bis hin zur Verwendung der SAPUI5-HTML-Bibliothek notwendig machen.
+	   											</html:div>
+											</html:td>												   
+										</html:tr>				
+									</html:table>
+									<html:table class="OnBoardDelightsTableTinted">
+										<html:tr>						
+											<html:td >						
+												<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+													Die Verwendung von Grid-Techniken, die auch in anderen Framesets<html:br></html:br> 
+													zur Oberflächengestaltung wie Angular Einzug gehalten haben, <html:br></html:br>
+													ist in SAPUI5 in mehreren Bibliotheken (sap.zen.commons.Grid, sap.ui.layout.cssgrid.CSSGrid, sap.ui.layout.Grid, sap.f.GridContainer)<html:br></html:br>
+													implementiert.
+	   											</html:div>
+											</html:td>												   
+										</html:tr>				
+									</html:table>
+
+									<html:table class="OnBoardDelightsTableTinted">
+										<html:tr>						
+											<html:td >						
+												<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+													Für den in der Anwendung verwendeten Menübalken habe ich sap.ui.layout.cssgrid.CSSGrid verwendet.
+	   											</html:div>
+											</html:td>												   
+										</html:tr>				
+										<html:tr>						
+											<html:td >						
+												<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+													Diese Bibliothek bot für die gewünschten Features ausreichende Implementationsmöglichkeiten.
+	   											</html:div>
+											</html:td>												   
+										</html:tr>				
+									</html:table>
+									<html:table class="OnBoardDelightsTableTinted">
+										<html:tr>						
+											<html:td >						
+												<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+													Welche Bibliothek im konkreten Projekt zum Einsatz kommen wird, <html:br></html:br>
+													wird auch vom Styleguide für die zu erstellende Anwendung abhängen.
+	   											</html:div>
+											</html:td>												   
+										</html:tr>				
+										<html:tr>						
+											<html:td >						
+												<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+													Eine Vorstellung über die Entscheidungsgrundlagen kann auch die <html:br></html:br>nebenstehende Tabelle liefern.
+	   											</html:div>
+											</html:td>												   
+										</html:tr>				
+										<html:tr>						
+											<html:td >						
+												<html:div class="OnBoardDelightsTextStd_Bold OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+													https://sapui5.hana.ondemand.com/#/topic/32d4b9c2b981425dbc374d3e9d5d0c2e
+	   											</html:div>
+											</html:td>												   
+										</html:tr>				
+
+									</html:table>
+
+								</l:VerticalLayout>
+							</VBox>
+						</f:content>
+					</f:Card>									
+
+				</l:Grid>
+			</l:VerticalLayout>		
+			
+   		</Panel>		
+<!-- Fiori Elements-->
+	    <Panel
+			expandable="true" 
+			expanded="false" 	
+			headerText="Fiori Elements"			
+		>  
+			<content>	
+				<l:VerticalLayout>
+					<l:Grid binding="{/InformationCollection}" hSpacing="0"
+						defaultSpan="XL12 L12 M12 S12"  defaultIndent="XL0 L0 M0" class="sapUiSmallMargin">		
+						<f:Card   >
+							<f:layoutData>
+								<f:GridContainerItemLayoutData minRows="8"  columns="6" />
+							</f:layoutData>
+							<f:content >
+								<VBox class="OnBoardDelightsCardTinted"  >
+									<l:VerticalLayout class="OnBoardDelightsCardTinted">		
+										<html:table style="width=100%" class="OnBoardDelightsTableTinted" >
+											<html:tr>						
+												<html:td style="width=70%">						
+													<html:div class="OnBoardDelightsTextH4 OnBoardDelightsTinyPaddingLeft">
+														Bei der Erstellung von Oberflächen, die nicht vorrangig betriebswirtschaftlich ergonomisch gestaltet sind,
+	   												</html:div>
+												</html:td>												   
+												<html:td style="align=left">						
+													<html:div class="OnBoardDelightsTextH5 OnBoardDelightsTinyPaddingLeft">
+												
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+										<html:table class="OnBoardDelightsTinyHoriSeparator"> 
+											<html:tr>						
+												<html:td style="width=50%">						
+													<html:div >
+
+						   							</html:div>
+												</html:td>												   
+												<html:td style="align=left">						
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd_Bold OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														stellt sich auch ziemlich bald die Anforderung an grafische Gestaltung mit Custom-Icons, grafischen bzw. fotografischen Elementen.
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd_Bold OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														Zunehmend kommen auch interaktive Grafiken und augmented bzw. virtuelle Environment zum Zuge.
+		   											</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+									</l:VerticalLayout>
+								</VBox>
+							</f:content>
+						</f:Card>									
+					</l:Grid>
+				</l:VerticalLayout>		
+			</content>
+   		</Panel>		
+<!-- Routing Event, Handling -->
+	    <Panel
+			expandable="true" 
+			expanded="false" 	
+			headerText="Routing, Event-Handling"			
+		>  
+			<content>	
+				<l:VerticalLayout>
+					<l:Grid binding="{/InformationCollection}" hSpacing="0"
+						defaultSpan="XL12 L12 M12 S12"  defaultIndent="XL0 L0 M0" class="sapUiSmallMargin">		
+						<f:Card   >
+							<f:layoutData>
+								<f:GridContainerItemLayoutData minRows="8"  columns="6" />
+							</f:layoutData>
+							<f:content >
+								<VBox class="OnBoardDelightsCardTinted"  >
+									<l:VerticalLayout class="OnBoardDelightsCardTinted">		
+										<html:table style="width=100%" class="OnBoardDelightsTableTinted" >
+											<html:tr>						
+												<html:td style="width=70%">						
+													<html:div class="OnBoardDelightsTextH4 OnBoardDelightsTinyPaddingLeft">
+														Bei der Erstellung von Oberflächen, die nicht vorrangig betriebswirtschaftlich ergonomisch gestaltet sind,
+	   												</html:div>
+												</html:td>												   
+												<html:td style="align=left">						
+													<html:div class="OnBoardDelightsTextH5 OnBoardDelightsTinyPaddingLeft">
+												
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+										<html:table class="OnBoardDelightsTinyHoriSeparator"> 
+											<html:tr>						
+												<html:td style="width=50%">						
+													<html:div >
+
+						   							</html:div>
+												</html:td>												   
+												<html:td style="align=left">						
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd_Bold OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														stellt sich auch ziemlich bald die Anforderung an grafische Gestaltung mit Custom-Icons, grafischen bzw. fotografischen Elementen.
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd_Bold OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														Zunehmend kommen auch interaktive Grafiken und augmented bzw. virtuelle Environment zum Zuge.
+		   											</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+									</l:VerticalLayout>
+								</VBox>
+							</f:content>
+						</f:Card>									
+					</l:Grid>
+				</l:VerticalLayout>		
+			</content>
+   		</Panel>		
+
+
+<!-- Custom Controls, Verwendung von Custom Libraries, Fragmente -->
+	    <Panel
+			expandable="true" 
+			expanded="false" 	
+			headerText="Custom Controls, Verwendung von Custom Libraries, Fragmente"			
+		>  
+			<content>	
+				<l:VerticalLayout>
+					<l:Grid binding="{/InformationCollection}" hSpacing="0"
+						defaultSpan="XL12 L12 M12 S12"  defaultIndent="XL0 L0 M0" class="sapUiSmallMargin">	
+						<f:Card   >
+							<f:layoutData>
+								<f:GridContainerItemLayoutData minRows="8"  columns="6" />
+							</f:layoutData>
+							<f:content >
+								<VBox class="OnBoardDelightsCardTinted"  >
+									<l:VerticalLayout class="OnBoardDelightsCardTinted">		
+										<html:table style="width=100%" class="OnBoardDelightsTableTinted" >
+											<html:tr>						
+												<html:td style="width=70%">						
+													<html:div class="OnBoardDelightsTextH4 OnBoardDelightsTinyPaddingLeft">
+														SAPUI5 bietet auch die Möglichkeit externe Libraries einzubinden.
+	   												</html:div>
+												</html:td>												   
+												<html:td style="align=left">						
+													<html:div class="OnBoardDelightsTextH5 OnBoardDelightsTinyPaddingLeft">
+												
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+										<html:table class="OnBoardDelightsTinyHoriSeparator"> 
+											<html:tr>						
+												<html:td style="width=50%">						
+													<html:div >
+
+						   							</html:div>
+												</html:td>												   
+												<html:td style="align=left">						
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														In der Anwendung wird dieses u.a. durch eine Bibliothek (pubnub) demonstriert, die mit einem Chatserver kommuniziert.
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														Die Bibliothek wird über ... der SAPUI5-Anwendung zur Verfügung gestellt. Im Methodencoding kann dann direkt auf das API der Library zugegriffen werden.
+		   											</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+									</l:VerticalLayout>
+								</VBox>
+							</f:content>
+						</f:Card>																
+					</l:Grid>
+				</l:VerticalLayout>		
+			</content>
+   		</Panel>		
+<!-- Einbindung von Grafik : Icons, interaktive 2D und 3D Grafik -->
+	    <Panel
+			expandable="true" 
+			expanded="false" 	
+			headerText="Einbindung von Grafik : Icons, Interaktive 2D und 3D Grafik"			
+		>  
+			<content>	
+				<l:VerticalLayout>
+					<l:Grid binding="{/InformationCollection}" hSpacing="0"
+						defaultSpan="XL12 L12 M12 S12"  defaultIndent="XL0 L0 M0" class="sapUiSmallMargin">	
+						<f:Card   >
+							<f:layoutData>
+								<f:GridContainerItemLayoutData minRows="8"  columns="6" />
+							</f:layoutData>
+							<f:content >
+								<VBox class="OnBoardDelightsCardTinted"  >
+									<l:VerticalLayout class="OnBoardDelightsCardTinted">		
+										<html:table style="width=100%" class="OnBoardDelightsTableTinted" >
+											<html:tr>						
+												<html:td style="width=70%">						
+													<html:div class="OnBoardDelightsTextH4 OnBoardDelightsTinyPaddingLeft">
+														Bei der Erstellung von Oberflächen, die nicht vorrangig betriebswirtschaftlich ergonomisch gestaltet sind,
+	   												</html:div>
+												</html:td>												   
+												<html:td style="align=left">						
+													<html:div class="OnBoardDelightsTextH5 OnBoardDelightsTinyPaddingLeft">
+												
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+										<html:table class="OnBoardDelightsTinyHoriSeparator"> 
+											<html:tr>						
+												<html:td style="width=50%">						
+													<html:div >
+
+						   							</html:div>
+												</html:td>												   
+												<html:td style="align=left">						
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														stellt sich auch ziemlich bald die Anforderung an grafische Gestaltung mit Custom-Icons, grafischen bzw. fotografischen Elementen.
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														Zunehmend kommen auch interaktive Grafiken und augmented bzw. virtuelle Environmentelemente zum Zuge.
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+
+										</html:table>
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														Sollen SAPUI5-Seiten das Unternehmens-CI einhalten, kommt man um die Verwendung von grafischen Elementen ebenfalls nicht herum.
+		   											</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+									</l:VerticalLayout>
+								</VBox>
+							</f:content>
+						</f:Card>																
+					</l:Grid>
+				</l:VerticalLayout>		
+			</content>
+   		</Panel>		
+	    <Panel
+			expandable="true" 
+			expanded="false" 	
+			headerText="Infos zu einzelnen Seiten"			
+		>  
+			<content>	
+				<l:VerticalLayout>
+					<l:Grid binding="{/InformationCollection}" hSpacing="0"
+						defaultSpan="XL12 L12 M12 S12"  defaultIndent="XL0 L0 M0" class="sapUiSmallMargin">	
+						<f:Card   >
+							<f:layoutData>
+								<f:GridContainerItemLayoutData minRows="8"  columns="6" />
+							</f:layoutData>
+							<f:content >
+								<VBox class="OnBoardDelightsCardTinted"  >
+									<l:VerticalLayout class="OnBoardDelightsCardTinted">		
+										<html:table style="width=100%" class="OnBoardDelightsTableTinted" >
+											<html:tr>						
+												<html:td style="width=70%">						
+													<html:div class="OnBoardDelightsTextH4 OnBoardDelightsTinyPaddingLeft">
+														Home Page
+	   												</html:div>
+												</html:td>												   
+												<html:td style="align=left">						
+													<html:div class="OnBoardDelightsTextH5 OnBoardDelightsTinyPaddingLeft">
+												
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+										<html:table class="OnBoardDelightsTinyHoriSeparator"> 
+											<html:tr>						
+												<html:td style="width=50%">						
+													<html:div >
+
+						   							</html:div>
+												</html:td>												   
+												<html:td style="align=left">						
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														SAPUI5 ist ein Entwicklungsframework, welches es ermöglicht, zügig Businessanwendungen, 
+die mit einem SAP-Backend kommunizieren zu entwickeln.
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														Hierfür wurde von SAP ein spezielles LookandFeel Framework mit relativ respriktiven Entwicklungsguidelines
+entwickelt. Obgleich auch beständig an den zu verwendenden Themes gearbeitet wird, ist die User Experience nicht immer zufriedenstellend.
+	   												</html:div>
+												</html:td>												   
+											</html:tr>				
+
+										</html:table>
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														In diesen Fällen müssen dann die Guidelines ´überredet´ werden, von Ihrem restriktivem Verhalten abzusehen.
+		   											</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														Die Seite verwendet ein Popup-menu, welches sich wie ein Menu einer mobilen Anwendung verhält.
+														Um Platz zu sparen, verschwindet es vollständig nach der Verwendung.
+		   											</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														Die Vertiefungsgrafiken werden besonders knackig darbestellt, weil sie als SVG-Vektorgrafiken gerendert werden.
+														Die Textelemente sind in HTML-Tags eingebunden, um erweiterte Darstellung zu ermöglichen.
+		   											</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+										<html:table class="OnBoardDelightsTableTinted">
+											<html:tr>						
+												<html:td >						
+													<html:div class="OnBoardDelightsTextStd OnBoardDelightsTinyPaddingLeft OnBoardDelightsLargePaddingRight">
+														Bildnachweis :
+														SVG-Grafiken : Mattes Wohland
+		   											</html:div>
+												</html:td>												   
+											</html:tr>				
+										</html:table>
+
+									</l:VerticalLayout>
+								</VBox>
+							</f:content>
+						</f:Card>																
+					</l:Grid>
+				</l:VerticalLayout>		
+			</content>
+   		</Panel>		
+
+    </Page>
+</mvc:View>

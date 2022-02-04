@@ -1,0 +1,1023 @@
+/*  OnBoardCompanion */
+
+.MattesDesignTextH1 
+{
+  color :#123456;
+  font-size: 2.8rem;
+  line-height: 4.8rem;
+  font-weight: 500;  
+  padding-bottom: 25px;
+}
+
+.MattesDesignTextH2 {
+  color :#123456;
+  font-size: 2.1rem;
+  line-height: 2rem;
+    font-weight: 300;  
+  padding-bottom: 15px;  
+  padding-top: 15px;    
+}
+
+.MattesDesignTextH3 {
+  color :#123456;
+  font-size: 1.8rem;
+  line-height: 2rem;
+    font-weight: 300;  
+  padding-bottom: 15px;  
+  padding-top: 15px;    
+}
+
+.MattesDesignTextStd {
+  color :#123456;
+  font-size: 1.0rem;
+  line-height: 1.4rem;
+    font-weight: 400;  
+  padding-top: 20px;  
+  padding-bottom: 20px;    
+}
+
+/* MenuBar */
+
+.MattesDesignMenuBar
+{
+  background-color :#123456;
+}  
+
+/*  ----------------------------------------- */
+/*  D3_FlightConnections */
+.country {
+  fill: lightgray;
+  stroke: darkgrey;
+  stroke-width: 1px;
+} 
+
+.country:hover {
+  fill: darkgrey;
+}
+
+div.tooltipDestination 
+{
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  height: 16px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: red;
+  border: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+  padding-top: 5px;
+}
+
+div.tooltipOrigin 
+{
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  height: 16px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: green;
+  border: 0px;
+  border-radius: 0px;
+  pointer-events: none;
+  padding-top: 5px;
+}
+
+/*  ----------------------------------------- */
+/*  THSM =  ThreeSceneManager */
+/* Keine Spinners in Number-feldern */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button 
+{
+  -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+input[type=number] 
+{
+  -moz-appearance: textfield;
+}
+
+  /* Spielfeld */
+  .THSM_controlPad 
+  {
+    background-color:#FFFFFF;   
+    padding-left : 20px;
+    padding-right : 20px;    
+  }
+
+  .THSM_controlArea 
+  {
+    font-size: 14px;
+    background-color:#eeeeee;        
+    border: 1px solid white;
+    border-radius: 2px;    
+    padding: 0;
+  }  
+
+  .THSM_controlAreaObjProps
+  {
+    font-size: 14px;
+  }
+  .THSM_controlAreaCameraPos
+  {
+    font-size: 14px;
+  }
+  .THSM_controlAreaCameraLookAt
+  {
+    font-size: 14px;
+  }
+  .THSM_controlAreaCameraProps
+  {
+    font-size: 14px;
+  }
+
+/* ObjPos */  
+  .THSM_controlAreaObjPos
+  {
+    font-size: 14px;
+  }
+
+  .THSM_controlAreaObjPos_active
+  {
+    font-size: 14px;
+    background-color:#eeeeee;        
+    border: 1px solid white;
+    border-radius: 2px;    
+    padding: 0;
+    position :fixed;
+    top    : 70%;
+    left   : 30%;
+    height : 20%;
+    width  : 40%;
+  }
+
+  .THSM_labelcontainerObjPos  
+  {
+    padding-top   : 5px;
+    width         : 35px;
+    height        : 20px;    
+  }  
+
+  .THSM_labelcontainerObjPos-s  
+  {
+    padding-top   : 15px;
+    width         : 35px;
+    height        : 20px;    
+  }  
+
+  .THSM_labelObjPos
+  {
+    font-size     : 8pt;
+    width         : 15px;
+    height        : 20px;
+    border: none;
+
+    background-color:#eeeeee;         
+
+
+    
+  }  
+
+  .THSM_inputcontainerObjPos  
+  {
+    padding-top   : 5px;
+    width         : 35px;
+    height        : 20px;    
+
+  }  
+  .THSM_inputcontainerObjPos-s  
+  {
+    padding-top   : 15px;
+    width         : 35px;
+    height        : 20px;    
+
+  }  
+
+  .THSM_inputObjPos
+  {
+    font-size : 8pt;
+    width     : 25px;
+    height    : 20px;    
+    border    : none;
+  }  
+
+  .THSM_slidecontainerObjPos 
+  {
+    padding-top   :  5px;    
+    width         : 100%;
+  }
+  
+  .THSM_slidecontainerObjPos-s 
+  {
+    padding-top   : 15px;        
+    padding-left   : 5px;            
+    padding-right   : 5px;            
+    width: 100%;
+  }
+
+  .THSM_slideColumnSliderObjPos
+  {width: 100%;}
+  .THSM_slideColumnSliderObjPos-s
+  {width: 75%;}
+
+
+
+/* Obj Scale */
+.THSM_controlAreaObjScale
+{
+  font-size: 14px;
+}
+
+.THSM_controlAreaObjScale_active
+{
+  font-size: 14px;
+  background-color:#eeeeee;        
+  border: 1px solid white;
+  border-radius: 2px;    
+  padding: 0;
+
+
+    position :fixed;
+    top    : 70%;
+    left   : 30%;
+    height : 20%;
+    width  : 40%;
+}
+
+.THSM_labelcontainerObjScale  
+{
+  padding-top   : 5px;
+  width         : 35px;
+  height        : 20px;    
+}  
+
+.THSM_labelcontainerObjScale-s  
+{
+  padding-top   : 15px;
+  width         : 35px;
+  height        : 20px;    
+}  
+
+.THSM_labelObjScale
+{
+  font-size     : 8pt;
+  width         : 15px;
+  height        : 20px;
+  border: none;
+  background-color:#eeeeee;            
+}  
+
+.THSM_inputcontainerObjScale  
+{
+  padding-top   : 5px;
+  width         : 35px;
+  height        : 20px;    
+
+}  
+
+.THSM_inputcontainerObjScale-s  
+{
+  padding-top   : 15px;
+  width         : 35px;
+  height        : 20px;    
+
+}  
+
+.THSM_inputObjScale
+{
+  font-size : 8pt;
+  width     : 25px;
+  height    : 20px;    
+  border    : none;
+}  
+
+.THSM_slidecontainerObjScale 
+{
+  padding-top   :  5px;    
+  width         : 100%;
+}
+
+.THSM_slidecontainerObjScale-s 
+{
+  padding-top   : 15px;        
+  padding-left   : 5px;            
+  padding-right   : 5px;            
+  width: 100%;
+}
+
+.THSM_slideColumnSliderObjScale
+{width: 100%;}
+.THSM_slideColumnSliderObjScale-s
+{width: 75%;}
+
+
+
+/* Obj Props  */
+.THSM_controlAreaObjProps
+{
+  font-size: 14px;
+}
+
+.THSM_controlAreaObjProps_active
+{
+  font-size: 14px;
+  background-color:#eeeeee;        
+  border: 1px solid white;
+  border-radius: 2px;    
+  padding: 0;
+  position :fixed;
+    top    : 70%;
+    left   : 30%;
+    height : 20%;
+    width  : 40%;
+}
+
+.THSM_labelcontainerObjProps  
+{
+  padding-top   : 5px;
+  width         : 35px;
+  height        : 20px;    
+}  
+
+.THSM_labelcontainerObjProps-s  
+{
+  padding-top   : 15px;
+  width         : 15px;
+  height        : 20px;    
+}  
+
+.THSM_labelObjProps
+{
+  font-size     : 8pt;
+  width         : 15px;
+  height        : 20px;
+  border: none;
+  background-color:#eeeeee;            
+}  
+
+.THSM_inputcontainerObjProps  
+{
+  padding-top   : 5px;
+  width         : 35px;
+  height        : 20px;    
+
+}  
+
+.THSM_inputcontainerObjProps-s  
+{
+  padding-top   : 15px;
+  width         : 35px;
+  height        : 20px;    
+
+}  
+
+.THSM_inputObjProps
+{
+  font-size : 8pt;
+  width     : 25px;
+  height    : 20px;    
+  border    : none;
+}  
+
+.THSM_slidecontainerObjProps 
+{
+  padding-top   :  5px;    
+  width         : 100%;
+}
+
+.THSM_slidecontainerObjProps-s 
+{
+  padding-top   : 15px;        
+  padding-left   : 5px;            
+  padding-right   : 5px;            
+  width: 100%; 
+/*  
+  width: 150px;
+*/  
+}
+
+.THSM_slideColumnSliderObjProps
+{width: 100%;}
+.THSM_slideColumnSliderObjProps-s
+{width: 75%;}
+
+
+
+/* Camera Pos */  
+.THSM_controlAreaCameraPos
+{
+  font-size: 14px;
+}
+
+.THSM_controlAreaCameraPos_active
+{
+  font-size: 14px;
+  background-color:#eeeeee;        
+  border: 1px solid white;
+  border-radius: 2px;    
+  padding: 0;
+  position :fixed;
+  top    : 70%;
+  left   : 30%;
+  height : 20%;
+  width  : 40%;
+}
+
+.THSM_labelcontainerCameraPos  
+{
+  padding-top   : 5px;
+  width         : 35px;
+  height        : 20px;    
+}  
+
+.THSM_labelcontainerCameraPos-s  
+{
+  padding-top   : 15px;
+  width         : 35px;
+  height        : 20px;    
+}  
+
+.THSM_labelCameraPos
+{
+  font-size     : 8pt;
+  width         : 15px;
+  height        : 20px;
+  border: none;
+  background-color:#eeeeee;            
+}  
+
+.THSM_inputcontainerCameraPos  
+{
+  padding-top   : 5px;
+  width         : 35px;
+  height        : 20px;    
+
+}  
+.THSM_inputcontainerCameraPos-s  
+{
+  padding-top   : 15px;
+  width         : 35px;
+  height        : 20px;    
+
+}  
+
+.THSM_inputCameraPos
+{
+  font-size : 8pt;
+  width     : 25px;
+  height    : 20px;    
+  border    : none;
+}  
+
+.THSM_slidecontainerCameraPos 
+{
+  padding-top   :  5px;    
+  width         : 100%;
+}
+
+.THSM_slidecontainerCameraPos-s 
+{
+  padding-top   : 15px;        
+  padding-left   : 5px;            
+  padding-right   : 5px;            
+  width: 100%;
+}
+
+.THSM_slideColumnSliderCameraPos
+{width: 100%;}
+.THSM_slideColumnSliderCameraPos-s
+{width: 75%;}
+
+
+
+
+
+/* Camera LookAt */  
+.THSM_controlAreaCameraLookAt
+{
+  font-size: 14px;
+}
+
+.THSM_controlAreaCameraLookAt_active
+{
+  font-size: 14px;
+  background-color:#eeeeee;        
+  border: 1px solid white;
+  border-radius: 2px;    
+  padding: 0;
+  position :fixed;
+  top    : 70%;
+  left   : 30%;
+  height : 20%;
+  width  : 40%;
+}
+
+.THSM_labelcontainerCameraLookAt  
+{
+  padding-top   : 5px;
+  width         : 35px;
+  height        : 20px;    
+}  
+
+.THSM_labelcontainerCameraLookAt-s  
+{
+  padding-top   : 15px;
+  width         : 35px;
+  height        : 20px;    
+}  
+
+.THSM_labelCameraLookAt
+{
+  font-size     : 8pt;
+  width         : 15px;
+  height        : 20px;
+  border: none;
+  background-color:#eeeeee;            
+}  
+
+.THSM_inputcontainerCameraLookAt  
+{
+  padding-top   : 5px;
+  width         : 35px;
+  height        : 20px;    
+
+}  
+.THSM_inputcontainerCameraLookAt-s  
+{
+  padding-top   : 15px;
+  width         : 35px;
+  height        : 20px;    
+
+}  
+
+.THSM_inputCameraLookAt
+{
+  font-size : 8pt;
+  width     : 25px;
+  height    : 20px;    
+  border    : none;
+}  
+
+.THSM_slidecontainerCameraLookAt 
+{
+  padding-top   :  5px;    
+  width         : 100%;
+}
+
+.THSM_slidecontainerCameraLookAt-s 
+{
+  padding-top   : 15px;        
+  padding-left   : 5px;            
+  padding-right   : 5px;            
+  width: 100%;
+}
+
+.THSM_slideColumnSliderCameraLookAt
+{width: 100%;}
+.THSM_slideColumnSliderCameraLookAt-s
+{width: 75%;}
+
+
+
+
+/* Camera Props  */  
+.THSM_controlAreaCameraProps
+{
+  font-size: 14px;
+}
+
+.THSM_controlAreaCameraProps_active
+{
+  font-size: 14px;
+  background-color:#eeeeee;        
+  border: 1px solid white;
+  border-radius: 2px;    
+  padding: 0;
+  position :fixed;
+  top    : 70%;
+  left   : 30%;
+  height : 20%;
+  width  : 40%;
+}
+
+.THSM_labelcontainerCameraProps  
+{
+  padding-top   : 5px;
+  width         : 35px;
+  height        : 20px;    
+}  
+
+.THSM_labelcontainerCameraProps-s  
+{
+  padding-top   : 15px;
+  width         : 35px;
+  height        : 20px;    
+}  
+
+.THSM_labelCameraProps
+{
+  font-size     : 8pt;
+  width         : 15px;
+  height        : 20px;
+  border: none;
+  background-color:#eeeeee;            
+}  
+
+.THSM_inputcontainerCameraProps  
+{
+  padding-top   : 5px;
+  width         : 35px;
+  height        : 20px;    
+
+}  
+.THSM_inputcontainerCameraProps-s  
+{
+  padding-top   : 15px;
+  width         : 35px;
+  height        : 20px;    
+
+}  
+
+.THSM_inputCameraProps
+{
+  font-size : 8pt;
+  width     : 25px;
+  height    : 20px;    
+  border    : none;
+}  
+
+.THSM_slidecontainerCameraProps 
+{
+  padding-top   :  5px;    
+  width         : 100%;
+}
+
+.THSM_slidecontainerCameraProps-s 
+{
+  padding-top   : 15px;        
+  padding-left   : 5px;            
+  padding-right   : 5px;            
+  width: 100%;
+}
+
+.THSM_slideColumnSliderCameraProps
+{width: 100%;}
+.THSM_slideColumnSliderCameraProps-s
+{width: 75%;}
+
+/*
+.vizArea
+padding-right: 20px;  
+  width: 400px;
+*/
+
+
+.THSM_vizArea {
+  height : 100%;
+/*  
+  padding-left: 10%;
+*/  
+  background-color: #777777;
+}
+
+/*  kommt aus dem View */
+.THSM_threeCylinderGeometry 
+{
+  padding-top : 10px;
+  height : 86%;
+  background-color:#FFFFFF;        
+}
+
+/*  Controls  */
+
+  .THSM_controlHeader 
+  {
+    border: 1px solid #405a75;
+
+    
+    border-radius: 2px;    
+/*
+    border: 1px solid black;
+    background-color:#eafaff;    
+*/       
+    background-color:#fdedb4;        
+    text-align: center;
+    font-size: 8pt;
+    height : 25px;    
+    padding: 0;    
+  }
+
+  .THSM_controlRow
+  {
+    border: 1px solid black;
+    border-radius: 2px;    
+    background-color:#eac234;    
+    text-align: center;
+    font-size: 8pt;
+    height : 25px;    
+  }
+
+  .THSM_controlLabel 
+  {
+    font-size     : 8pt;
+/*    
+    background-color:#eafaff;    
+
+    padding-right : 15px;    
+    padding-top   : 5px;        
+*/    
+    width         : 35px;
+
+  }  
+
+  
+  .THSM_footer {
+    background-color: #0099cc;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+  }
+  
+
+/*  Ausrichtung der Controls  */  
+/*  Grid für Controls     */
+* {
+    box-sizing: border-box;
+  }
+
+  .THSM_row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  [class*="col-"] {
+    float: left;
+    padding: 3px;
+  }
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 25%;
+    padding-bottom: 1px;  
+    padding-top: 1px;    
+  }
+
+
+
+/*  @media only screen and (min-width: 600px) { */
+  @media only screen and (min-width: 200px)
+  {
+
+    .THSM_vizArea {
+      height : 100%;
+/*      
+      padding-left: 10%;
+*/      
+      background-color: #777777;
+    }
+    /* For tablets: */
+    .THSM_col-s-1 {width: 8.33%;}
+    .THSM_col-s-2 {width: 16.66%;}
+    .THSM_col-s-3 {width: 25%;} 
+
+    .THSM_col-s-4 {width: 33.33%;}
+    .THSM_col-s-5 {width: 41.66%;}
+
+/*    .col-s-6 {width: 50%;} */
+    .THSM_col-s-6 {width: 50%;}
+    .THSM_col-s-7 {width: 58.33%;}
+    .THSM_col-s-8 {width: 66.66%;}
+    .THSM_col-s-9 {width: 75%;}
+    .THSM_col-s-10 {width: 83.33%;}
+    .THSM_col-s-11 {width: 91.66%;}
+    .THSM_col-s-12 {width: 100%;}
+
+/*  Obj Pos  */
+
+    .THSM_controlAreaObjPos-s
+    {
+      font-size: 14px;
+    }
+    .THSM_controlAreaObjPos-s_active
+    {
+      font-size: 14px;
+      background-color:#f8f4e6;;        
+      border: 1px solid #6c9bce;
+      border-radius: 2px;    
+      padding: 0;
+      top    : 65%;
+      left   : 30%;
+      height : 40%;
+      width  : 200px !important;
+    }
+
+/*  Obj Scale  */
+    .THSM_controlAreaObjScale-s
+    {
+      font-size: 14px;
+    }    
+    .THSM_controlAreaObjScale-s_active
+    {
+      font-size: 14px;
+      background-color:#f8f4e6;;        
+      border: 1px solid #6c9bce;
+      border-radius: 2px;    
+      padding: 0;
+      top    : 65%;
+      left   : 30%;
+      height : 40%;
+      width  : 200px !important;
+     }    
+
+/*  Obj Props  */    
+    .THSM_controlAreaObjProps-s
+    {
+      font-size: 14px;
+    }    
+    .THSM_controlAreaObjProps-s_active
+    {
+      font-size: 14px;
+      background-color:#f8f4e6;;        
+      border: 1px solid #6c9bce;
+      border-radius: 2px;    
+      padding: 0;
+      top    : 65%;
+      left   : 30%;
+      height : 40%;
+      width  : 200px !important;
+    }    
+
+/*  Camera Pos  */
+  .THSM_controlAreaCameraPos-s
+  {
+    font-size: 14px;
+  }    
+  .THSM_controlAreaCameraPos-s_active
+  {
+    font-size: 14px;
+    background-color:#f8f4e6;;        
+    border: 1px solid #6c9bce;
+    border-radius: 2px;    
+    padding: 0;
+    top    : 65%;
+    left   : 30%;
+    height : 40%;
+    width  : 200px !important;
+}    
+/*  Camera LookAt  */
+.THSM_controlAreaCameraLookAt-s
+{
+  font-size: 14px;
+}    
+.THSM_controlAreaCameraLookAt-s_active
+{
+  font-size: 14px;
+  background-color:#f8f4e6;;        
+  border: 1px solid #6c9bce;
+  border-radius: 2px;    
+  padding: 0;
+  top    : 65%;
+  left   : 30%;
+  height : 40%;
+  width  : 200px !important;
+}    
+/*  Camera Props  */
+.THSM_controlAreaCameraProps-s
+{
+  font-size: 14px;
+}    
+.THSM_controlAreaCameraProps-s_active
+{
+  font-size: 14px;
+  background-color:#f8f4e6;;        
+  border: 1px solid #6c9bce;
+  border-radius: 2px;    
+  padding: 0;
+  top    : 65%;
+  left   : 30%;
+  height : 40%;
+  width  : 200px !important;
+}    
+
+
+  }
+  @media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .THSM_col-1 {width: 8.33%;}
+    .THSM_col-2 {width: 16.66%;}
+    .THSM_col-3 {width: 25%;}
+    .THSM_col-4 {width: 33.33%;}
+    .THSM_col-5 {width: 41.66%;}
+
+    .THSM_col-6 {width: 50%;}
+    .THSM_col-7 {width: 58.33%;}
+    .THSM_col-8 {width: 66.66%;}
+    .THSM_col-9 {width: 75%;}
+    .THSM_col-10 {width: 83.33%;}
+    .THSM_col-11 {width: 91.66%;}
+    .THSM_col-12 {width: 100%;}
+  }
+  
+  /* Slider */
+  .THSM_slidecontainer {
+    width: 100%;
+  }
+  
+  .THSM_slidecontainer-s 
+  {
+    width: 150px;
+    height: 35px;    
+  }
+
+
+
+
+
+  .THSM_slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 3px;
+    background: black;
+
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+
+  .THSM_slider-s {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    background: black;
+
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+
+/*
+    outline: none;
+    opacity: 0.7;
+    height: 25px;
+*/
+
+  /*
+  .slider:hover {
+    opacity: 1;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #04AA6D;
+    cursor: pointer;
+  }
+  */
+
+  .THSM_tooltip {
+/*    
+    display: inline;
+*/    
+    position: relative;
+
+  }
+  .THSM_tooltip:hover:after{
+/*    
+    z-index: 99;    
+*/    
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border-radius: 8px;
+    color: #000000;
+    content: 'Click to Enlarge';
+    margin: -82px auto 0;
+    font-size: 16px;
+    padding: 13px;
+    width: 220px;
+  }
+  .THSM_tooltip:hover:before{
+/*    
+    z-index: 99;
+*/    
+    border: solid;
+    border-color: #444 transparent;
+    border-width: 12px 6px 0 6px;
+    content: "";
+    left: 45%;
+    bottom: 30px;
+    position: absolute;
+  }
