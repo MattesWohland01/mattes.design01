@@ -1,11 +1,7 @@
 
 jQuery.sap.registerModulePath('thirdparty/three', 'libs/three');
 jQuery.sap.registerModulePath('thirdparty/ColladaLoader', 'libs/ColladaLoader');
-// jQuery.sap.registerModulePath('thirdparty/TDSLoader', 'libs/TDSLoader');
-// OrbitControls.js from https://gist.githubusercontent.com/jonathanlurie/bcedf6153a33ec64ab0f7c45e4e6fb70/raw/e559cc482f1d6dbc9eca1da789bbe40d1d0929e1/OrbitControls.js
 jQuery.sap.registerModulePath('thirdparty/OrbitControls', 'libs/OrbitControls');
-//jQuery.sap.registerModulePath('thirdparty/Interaction', 'libs/three.interaction');
-// jQuery.sap.registerModulePath('thirdparty/InteractionMap', 'libs/three.interaction.map');
 
 sap.ui.define([
                 'sap/ui/core/Control',
@@ -14,10 +10,6 @@ sap.ui.define([
                 'thirdparty/three',
                 'thirdparty/ColladaLoader',                
                 'thirdparty/OrbitControls'
-//                ,
-//                'thirdparty/TDSLoader'                                
-//                'thirdparty/Interaction',                                
-//                'thirdparty/InteractionMap'                                                
             ]
             , 
             function(
@@ -43,7 +35,7 @@ sap.ui.define([
                 },
             },
             aggregations : {
-                _HTMLSlidertemp01         : {type : "sap.ui.core.HTML", multiple : false}                                             
+                _HTMLThreeCanvas         : {type : "sap.ui.core.HTML", multiple : false}                                             
  // Obj Pos               
                  ,
                 _HTMLControlHeaderObjPos   : {type : "sap.ui.core.HTML", multiple : false}                                             
@@ -208,7 +200,7 @@ sap.ui.define([
         cameraPositionX    : 10,
         cameraPositionY    : 10,        
         cameraPositionZ    : 10,     
-        cameraLookAtX      : 10,
+        cameraLookAtX      : 65,
         cameraLookAtY      : 10,        
         cameraLookAtZ      : 10,     
         cameraAngle        : 45,
@@ -233,137 +225,109 @@ sap.ui.define([
         {
             var oControl = this, 
 
+            oHTMLControlHeaderObjPos,                            
+            oHTMLInputObjPosX,                            
+            oHTMLLabelObjPosX,                                                        
+            oHTMLSliderObjPosX,                            
+
+            oHTMLInputObjPosY,                            
+            oHTMLLabelObjPosY,                                                        
+            oHTMLSliderObjPosY,                                                        
+
+            oHTMLInputObjPosZ,                            
+            oHTMLLabelObjPosZ,                                                        
+            oHTMLSliderObjPosZ,  
+
+            oHTMLControlHeaderObjScale,                            
+            oHTMLInputObjScaleX,                            
+            oHTMLLabelObjScaleX,                                                        
+            oHTMLSliderObjScaleX,                            
+
+            oHTMLInputObjScaleY,                            
+            oHTMLLabelObjScaleY,                                                        
+            oHTMLSliderObjScaleY,                                                        
+
+            oHTMLInputObjScaleZ,                            
+            oHTMLLabelObjScaleZ,                                                        
+            oHTMLSliderObjScaleZ,                                                        
+
+            oHTMLControlHeaderObjProps,                            
+            oHTMLInputObjRotationX,                            
+            oHTMLLabelObjRotationX,                                                        
+            oHTMLSliderObjRotationX,                            
+
+            oHTMLInputObjRotationY,                            
+            oHTMLLabelObjRotationY,                                                        
+            oHTMLSliderObjRotationY,                                                        
+
+            oHTMLInputObjRotationZ,                            
+            oHTMLLabelObjRotationZ,                                                        
+            oHTMLSliderObjRotationZ,
+
+            oHTMLControlHeaderCameraPos,
+
+//          oHTMLSliderCameraPosX,      
+//          oHTMLSliderCameraPosY,                                                        
+//          oHTMLSliderCameraPosZ,                                                        
+
+            oHTMLInputCameraPosX,                            
+            oHTMLLabelCameraPosX,                                                        
+            oHTMLSliderCameraPosX,      
+
+            oHTMLInputCameraPosY,                            
+            oHTMLLabelCameraPosY,                                                        
+            oHTMLSliderCameraPosY,                                                        
+
+            oHTMLInputCameraPosZ,                            
+            oHTMLLabelCameraPosZ,                                                        
+            oHTMLSliderCameraPosZ,                                                        
+
+            oHTMLControlHeaderCameraLookAt,
+
+            oHTMLInputCameraLookAtX,                            
+            oHTMLLabelCameraLookAtX,                                                        
+            oHTMLSliderCameraLookAtX,                            
+
+            oHTMLInputCameraLookAtY,                            
+            oHTMLLabelCameraLookAtY,                                                        
+            oHTMLSliderCameraLookAtY,                                                        
+
+            oHTMLInputCameraLookAtZ,                            
+            oHTMLLabelCameraLookAtZ,                                                        
+            oHTMLSliderCameraLookAtZ,                                                        
 
 
-
-                            oHTMLControlHeaderObjPos,                            
-                            oHTMLInputObjPosX,                            
-                            oHTMLLabelObjPosX,                                                        
-                            oHTMLSliderObjPosX,                            
-
-                            oHTMLInputObjPosY,                            
-                            oHTMLLabelObjPosY,                                                        
-                            oHTMLSliderObjPosY,                                                        
-
-                            oHTMLInputObjPosZ,                            
-                            oHTMLLabelObjPosZ,                                                        
-                            oHTMLSliderObjPosZ,  
-
-                            oHTMLControlHeaderObjScale,                            
-                            oHTMLInputObjScaleX,                            
-                            oHTMLLabelObjScaleX,                                                        
-                            oHTMLSliderObjScaleX,                            
-
-                            oHTMLInputObjScaleY,                            
-                            oHTMLLabelObjScaleY,                                                        
-                            oHTMLSliderObjScaleY,                                                        
-
-                            oHTMLInputObjScaleZ,                            
-                            oHTMLLabelObjScaleZ,                                                        
-                            oHTMLSliderObjScaleZ,                                                        
-
-                            oHTMLControlHeaderObjProps,                            
-                            oHTMLInputObjRotationX,                            
-                            oHTMLLabelObjRotationX,                                                        
-                            oHTMLSliderObjRotationX,                            
-
-                            oHTMLInputObjRotationY,                            
-                            oHTMLLabelObjRotationY,                                                        
-                            oHTMLSliderObjRotationY,                                                        
-
-                            oHTMLInputObjRotationZ,                            
-                            oHTMLLabelObjRotationZ,                                                        
-                            oHTMLSliderObjRotationZ,
-
-                            oHTMLControlHeaderCameraPos,
-
-//                            oHTMLSliderCameraPosX,      
-//                            oHTMLSliderCameraPosY,                                                        
-//                            oHTMLSliderCameraPosZ,                                                        
-
-                            oHTMLInputCameraPosX,                            
-                            oHTMLLabelCameraPosX,                                                        
-                            oHTMLSliderCameraPosX,      
-
-                            oHTMLInputCameraPosY,                            
-                            oHTMLLabelCameraPosY,                                                        
-                            oHTMLSliderCameraPosY,                                                        
-
-                            oHTMLInputCameraPosZ,                            
-                            oHTMLLabelCameraPosZ,                                                        
-                            oHTMLSliderCameraPosZ,                                                        
-
-                            oHTMLControlHeaderCameraLookAt,
-
-                            oHTMLInputCameraLookAtX,                            
-                            oHTMLLabelCameraLookAtX,                                                        
-                            oHTMLSliderCameraLookAtX,                            
-
-                            oHTMLInputCameraLookAtY,                            
-                            oHTMLLabelCameraLookAtY,                                                        
-                            oHTMLSliderCameraLookAtY,                                                        
-
-                            oHTMLInputCameraLookAtZ,                            
-                            oHTMLLabelCameraLookAtZ,                                                        
-                            oHTMLSliderCameraLookAtZ,                                                        
-
-
-                            oHTMLControlHeaderCameraProps,        
+            oHTMLControlHeaderCameraProps,        
                             
-                            oHTMLInputCameraAngle,                            
-                            oHTMLLabelCameraAngle,                                                        
-                            oHTMLSliderCameraAngle,                            
+            oHTMLInputCameraAngle,                            
+            oHTMLLabelCameraAngle,                                                        
+            oHTMLSliderCameraAngle,                            
 
-                            oHTMLInputCameraRatio,                            
-                            oHTMLLabelCameraRatio,                                                        
-                            oHTMLSliderCameraRatio,                                                        
+            oHTMLInputCameraRatio,                            
+            oHTMLLabelCameraRatio,                                                        
+            oHTMLSliderCameraRatio,                                                        
 
-                            oHTMLInputCameraNearPane,                            
-                            oHTMLLabelCameraNearPane,                                                        
-                            oHTMLSliderCameraNearPane,                                                        
+            oHTMLInputCameraNearPane,                            
+            oHTMLLabelCameraNearPane,                                                        
+            oHTMLSliderCameraNearPane,                                                        
 
-                            oHTMLInputCameraFarPane,                            
-                            oHTMLLabelCameraFarPane,                                                        
-                            oHTMLSliderCameraFarPane,                                                        
+            oHTMLInputCameraFarPane,                            
+            oHTMLLabelCameraFarPane,                                                        
+            oHTMLSliderCameraFarPane,
 
+            oHTMLThreeCanvas
+            ;            
 
-                            oHTMLSlidertemp01
-                            ;            
-
-                            oHTMLSlidertemp01 = new sap.ui.core.HTML({
-                                content: "<div class='slidecontainer'><input type='range' min='0' max='90' value='45' class='slider'></div>"                
-                            });
-                
-                
-                
-                
+//  ThreeCanvas
+            oHTMLThreeCanvas = new sap.ui.core.HTML({
+                content: "<canvas class='THSM_threeCylinderGeometry' id='threeCanvas' ></canvas>"                
+            });
+            
 
 // Object Pos            
             oHTMLControlHeaderObjPos = new sap.ui.core.HTML({
                 content: "<div class='THSM_row THSM_controlHeader THSM_tooltip'>  <div class='THSM_row THSM_controlHeader'>	Pfeil Position  </div></div>"                
             });
-/*            
-oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent) 
-{
-    console.log('oHTMLControlHeaderObjPos mouseenter : ' + oEvent.target);   
-
-// debugger;                
-//              var targetElement = oControl.getAggregation("_HTMLControlHeaderObjectPosition");
-//              targetElement.addStyleClass("activeControl");                
-//              console.log('oHTMLControlHeaderObjectPosition targetElement : ' + targetElement);  
-    var all = $( ".controlAreaObjPos" )
-    .map(function() {
-      this.classList.toggle('controlAreaObjPos_active');
-//                  return this.innerHTML;
-    })
-    .get();
-//                console.log(all.join());                
-//                $.each( all, function( key, value )
-//                {
-//                    console.log(key, value);                
-//                } );
-});
-*/            
             oHTMLControlHeaderObjPos.attachBrowserEvent("click", function(oEvent) 
             {
                 console.log('oHTMLControlHeaderObjPos click : ' + oEvent.target);   
@@ -455,7 +419,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             oHTMLControlHeaderObjScale.attachBrowserEvent("click", function(oEvent) 
             {
                 console.log('oHTMLControlHeaderObjScale click : ' + oEvent.target);   
-//                var all = $( ".THSM_controlAreaObjScale" ).map(function() {this.classList.toggle('THSM_controlAreaObjScale_active');}).get();
                 var all2 = $( ".THSM_controlAreaObjScale-s" ).map(function() {this.classList.toggle('THSM_controlAreaObjScale-s_active');}).get();         
                 var all  = $( ".THSM_controlAreaObjScale" ).map(function() {this.classList.toggle('THSM_controlAreaObjScale_active');}).get();
                 var all3 = $( ".THSM_slidecontainerObjScale" ).map(function() {this.classList.toggle('THSM_slidecontainerObjScale-s');}).get();         
@@ -553,15 +516,12 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             {
                 console.log('oHTMLControlHeaderObjProps click : ' + oEvent.target);   
 
-//                var all = $( ".THSM_controlAreaObjProps" ).map(function() {this.classList.toggle('THSM_controlAreaObjProps_active');}).get();
                 var all2 = $( ".THSM_controlAreaObjProps-s" ).map(function() {this.classList.toggle('THSM_controlAreaObjProps-s_active');}).get();         
                 var all  = $( ".THSM_controlAreaObjProps" ).map(function() {this.classList.toggle('THSM_controlAreaObjProps_active');}).get();
                 var all3 = $( ".THSM_slidecontainerObjProps" ).map(function() {this.classList.toggle('THSM_slidecontainerObjProps-s');}).get();         
                 var all4 = $( ".THSM_inputcontainerObjProps" ).map(function() {this.classList.toggle('THSM_inputcontainerObjProps-s');}).get();         
                 var all5 = $( ".THSM_labelcontainerObjProps" ).map(function() {this.classList.toggle('THSM_labelcontainerObjProps-s');}).get();                         
                 var all6 = $( ".THSM_tooltip" ).map(function() {this.classList.toggle('THSM_tooltip');}).get();               
-            
-
             });
 
 // X            
@@ -648,7 +608,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             oHTMLControlHeaderCameraLookAt.attachBrowserEvent("click", function(oEvent) 
             {
                 console.log('oHTMLControlHeaderCameraLookAt click : ' + oEvent.target);   
-//                var all = $( ".THSM_controlAreaCameraLookAt" ).map(function() {this.classList.toggle('THSM_controlAreaCameraLookAt_active');}).get();
                 var all2 = $( ".THSM_controlAreaCameraLookAt-s" ).map(function() {this.classList.toggle('THSM_controlAreaCameraLookAt-s_active');}).get();         
                 var all  = $( ".THSM_controlAreaCameraLookAt" ).map(function() {this.classList.toggle('THSM_controlAreaCameraLookAt_active');}).get();
                 var all3 = $( ".THSM_slidecontainerCameraLookAt" ).map(function() {this.classList.toggle('THSM_slidecontainerCameraLookAt-s');}).get();         
@@ -698,7 +657,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                 oControl.setCameraLookAtY(oEvent.target.value);
             });
 
-
             oHTMLSliderCameraLookAtY = new sap.ui.core.HTML({
                 content: "<div class='THSM_slidecontainerCameraLookAt'><input id='sliderCameraLookAtY' type='range' min='-180' max='180' value='30' class='THSM_slider'></div>"                
             });
@@ -744,7 +702,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             oHTMLControlHeaderCameraPos.attachBrowserEvent("click", function(oEvent) 
             {
                 console.log('oHTMLControlHeaderCameraPos click : ' + oEvent.target);   
-//                var all = $( ".THSM_controlAreaCameraPos" ).map(function() {this.classList.toggle('THSM_controlAreaCameraPos_active');}).get();
                 var all2 = $( ".THSM_controlAreaCameraPos-s" ).map(function() {this.classList.toggle('THSM_controlAreaCameraPos-s_active');}).get();         
                 var all  = $( ".THSM_controlAreaCameraPos" ).map(function() {this.classList.toggle('THSM_controlAreaCameraPos_active');}).get();
                 var all3 = $( ".THSM_slidecontainerCameraPos" ).map(function() {this.classList.toggle('THSM_slidecontainerCameraPos-s');}).get();         
@@ -837,7 +794,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             oHTMLControlHeaderCameraProps.attachBrowserEvent("click", function(oEvent) 
             {
                 console.log('oHTMLControlHeaderCameraProps click : ' + oEvent.target);   
-//                var all = $( ".THSM_controlAreaCameraProps" ).map(function() {this.classList.toggle('THSM_controlAreaCameraProps_active');}).get();
                 var all2 = $( ".THSM_controlAreaCameraProps-s" ).map(function() {this.classList.toggle('THSM_controlAreaCameraProps-s_active');}).get();         
                 var all  = $( ".THSM_controlAreaCameraProps" ).map(function() {this.classList.toggle('THSM_controlAreaCameraProps_active');}).get();
                 var all3 = $( ".THSM_slidecontainerCameraProps" ).map(function() {this.classList.toggle('THSM_slidecontainerCameraProps-s');}).get();         
@@ -949,13 +905,11 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                 oControl.setCameraFarPane(oEvent.target.value);
             });
 
-
-
-
-
-
 //  Objekte Aggregationen zuordnen
 //  -------------------------------------------            
+
+
+            this.setAggregation("_HTMLThreeCanvas", oHTMLThreeCanvas);               
 
 
 // Obj Pos
@@ -1001,8 +955,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             this.setAggregation("_HTMLLabelObjRotationZ", oHTMLLabelObjRotationZ);
             this.setAggregation("_HTMLInputObjRotationZ", oHTMLInputObjRotationZ);            
             this.setAggregation("_HTMLSliderObjRotationZ", oHTMLSliderObjRotationZ);                        
-
-
 
 
             this.setAggregation("_HTMLControlHeaderCameraPos", oHTMLControlHeaderCameraPos);   
@@ -1058,13 +1010,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             this.setAggregation("_HTMLInputCameraFarPane", oHTMLInputCameraFarPane);            
             this.setAggregation("_HTMLSliderCameraFarPane", oHTMLSliderCameraFarPane);                                    
 
-            
-
-
-            this.setAggregation("_HTMLSlidertemp01", oHTMLSlidertemp01);           
-            
-
-
         },
         
 
@@ -1074,20 +1019,14 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             oRm.openStart('div', oControl);
             oRm.class('THSM_vizArea');
             oRm.openEnd();
-
-            oRm.close('div');
+//            oRm.renderControl(oControl.getAggregation("_HTMLThreeCanvas"));                        
+            
+            oRm.renderControl(new HTML().setDOMContent(oControl.getWebGLRenderer().domElement));                
 
 //          Control-Pad            
             oRm.openStart('div');
             oRm.class('THSM_controlPad');
             oRm.openEnd();
-
-//            oRm.openStart('div', oControl);
-//            oRm.class('THSM_vizArea');
-//            oRm.openEnd();
-                oRm.renderControl(new HTML().setDOMContent(oControl.getWebGLRenderer().domElement));                
-//            oRm.close('div');       
-
 
 //          Panels
 //              äussere Zeile
@@ -1096,7 +1035,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                 oRm.writeClasses();
                 oRm.openEnd();
 // 1. Element (Object Position)
-// debugger;
                     oRm.openStart("div");
 //                    oRm.write(" id01 ");
                     oRm.addClass("THSM_col-2 THSM_col-s-2 THSM_controlAreaObjPos THSM_controlAreaObjPos-s");
@@ -1225,7 +1163,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-1 THSM_col-s-3");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('X');                                 
                                 oRm.renderControl(oControl.getAggregation("_HTMLLabelObjScaleX"));                                
                             oRm.close('div');   
 
@@ -1240,7 +1177,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-2 THSM_col-s-2");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('50');                            
                                 oRm.renderControl(oControl.getAggregation("_HTMLInputObjScaleX"));                                                                
                             oRm.close('div');   
 
@@ -1256,7 +1192,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-1 THSM_col-s-3");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('Y');                                 
                                 oRm.renderControl(oControl.getAggregation("_HTMLLabelObjScaleY"));                                                                
                             oRm.close('div');   
 
@@ -1271,13 +1206,10 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-2 THSM_col-s-2");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('50');
                                 oRm.renderControl(oControl.getAggregation("_HTMLInputObjScaleY"));                                        
                             oRm.close('div');   
 
                         oRm.close('div');  
-
-
 // 3. Zeile im Element
                         oRm.openStart("div");
                         oRm.addClass("THSM_row");
@@ -1288,7 +1220,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-1 THSM_col-s-3");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('Z');                                 
                                 oRm.renderControl(oControl.getAggregation("_HTMLLabelObjScaleZ"));                                                                                                
                             oRm.close('div');   
 
@@ -1303,7 +1234,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-2 THSM_col-s-2");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('50');
                                 oRm.renderControl(oControl.getAggregation("_HTMLInputObjScaleZ"));                                                                        
                             oRm.close('div');   
 
@@ -1337,7 +1267,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-1 THSM_col-s-3");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('O');     
                                 oRm.renderControl(oControl.getAggregation("_HTMLLabelObjRotationX"));                                                                                            
                             oRm.close('div');   
 
@@ -1352,7 +1281,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-2 THSM_col-s-2");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('50');        
                                 oRm.renderControl(oControl.getAggregation("_HTMLInputObjRotationX"));                                                                                                                            
                             oRm.close('div');   
 
@@ -1368,7 +1296,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-1 THSM_col-s-3");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('U');                                 
                                 oRm.renderControl(oControl.getAggregation("_HTMLLabelObjRotationY"));                                
                             oRm.close('div');   
 
@@ -1383,7 +1310,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-2 THSM_col-s-2");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('50');
                                 oRm.renderControl(oControl.getAggregation("_HTMLInputObjRotationY"));                                
                             oRm.close('div');   
                         oRm.close('div');  
@@ -1399,7 +1325,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-1 THSM_col-s-3");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                            oRm.write('H');                                 
                               oRm.renderControl(oControl.getAggregation("_HTMLLabelObjRotationZ"));                                                            
                             oRm.close('div');   
 
@@ -1414,7 +1339,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-2 THSM_col-s-2");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('50');
                                 oRm.renderControl(oControl.getAggregation("_HTMLInputObjRotationZ"));                                    
                             oRm.close('div');   
 
@@ -1425,7 +1349,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
 // ----------------------------------------------
 // 4. Element (Camera LookAt)
                     oRm.openStart("div");
-//                    oRm.addClass("col-2 col-s-2  controlArea controlAreaCameraLookAt");
                     oRm.addClass("THSM_col-2 THSM_col-s-2 THSM_controlAreaCameraLookAt THSM_controlAreaCameraLookAt-s");         
                     oRm.writeClasses();
                     oRm.openEnd();
@@ -1447,7 +1370,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-1 THSM_col-s-3");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('X');     
                                 oRm.renderControl(oControl.getAggregation("_HTMLLabelCameraLookAtX"));                                                                                                                                                                                
                             oRm.close('div');   
 
@@ -1462,7 +1384,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-2 THSM_col-s-2");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('0');    
                                 oRm.renderControl(oControl.getAggregation("_HTMLInputCameraLookAtX"));                                                                                                                    
                             oRm.close('div');   
 
@@ -1478,7 +1399,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-1 THSM_col-s-3");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('Y');                                 
                                 oRm.renderControl(oControl.getAggregation("_HTMLLabelCameraLookAtY"));                                                                                                                                                                                                                
                             oRm.close('div');   
 
@@ -1493,7 +1413,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-2 THSM_col-s-2");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('0');
                                 oRm.renderControl(oControl.getAggregation("_HTMLInputCameraLookAtY"));
                             oRm.close('div');   
 
@@ -1510,7 +1429,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-1 THSM_col-s-3");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('Z');                                 
                                 oRm.renderControl(oControl.getAggregation("_HTMLLabelCameraLookAtZ"));                                                                                                                                                                                                                                                
                             oRm.close('div');   
 
@@ -1525,7 +1443,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-2 THSM_col-s-2");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('0');
                                 oRm.renderControl(oControl.getAggregation("_HTMLInputCameraLookAtZ"));                                
                             oRm.close('div');   
 
@@ -1536,7 +1453,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
 // ----------------------------------------------
 // 5. Element (Camera Pos)
                         oRm.openStart("div");
-//                        oRm.addClass("col-2 col-s-2  controlArea controlAreaCameraPos");
                         oRm.addClass("THSM_col-2 THSM_col-s-2 THSM_controlAreaCameraPos THSM_controlAreaCameraPos-s");                                                                
                         oRm.writeClasses();
                         oRm.openEnd();
@@ -1559,7 +1475,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                                 oRm.addClass("THSM_col-1 THSM_col-s-3");
                                 oRm.writeClasses();
                                 oRm.openEnd();
-//                                    oRm.write('X');      
                                     oRm.renderControl(oControl.getAggregation("_HTMLLabelCameraPosX"));                                                                                               
                                 oRm.close('div');   
 
@@ -1574,7 +1489,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                                 oRm.addClass("THSM_col-2 THSM_col-s-2");
                                 oRm.writeClasses();
                                 oRm.openEnd();
-//                                    oRm.write('-10');                            
                                     oRm.renderControl(oControl.getAggregation("_HTMLInputCameraPosX"));                                                                                                                                   
                                 oRm.close('div');   
 
@@ -1590,7 +1504,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                                 oRm.addClass("THSM_col-1 THSM_col-s-3");
                                 oRm.writeClasses();
                                 oRm.openEnd();
-//                                    oRm.write('Y');                                 
                                     oRm.renderControl(oControl.getAggregation("_HTMLLabelCameraPosY"));                                    
                                 oRm.close('div');   
 
@@ -1605,7 +1518,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                                 oRm.addClass("THSM_col-2 THSM_col-s-2");
                                 oRm.writeClasses();
                                 oRm.openEnd();
-//                                    oRm.write('-10');
                                     oRm.renderControl(oControl.getAggregation("_HTMLInputCameraPosY"));                                                                                                                                                                       
                                 oRm.close('div');   
 
@@ -1622,7 +1534,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                                 oRm.addClass("THSM_col-1 THSM_col-s-3");
                                 oRm.writeClasses();
                                 oRm.openEnd();
-//                                    oRm.write('Z');        
                                     oRm.renderControl(oControl.getAggregation("_HTMLLabelCameraPosZ"));                                                                                                 
                                 oRm.close('div');   
 
@@ -1637,14 +1548,11 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                                 oRm.addClass("THSM_col-2 THSM_col-s-2");
                                 oRm.writeClasses();
                                 oRm.openEnd();
-//                                    oRm.write('-10');
                                     oRm.renderControl(oControl.getAggregation("_HTMLInputCameraPosZ"));                                                                                                                                                                                                           
                                 oRm.close('div');   
-
                             oRm.close('div');  
 // 5. Steuerelement Ende
                         oRm.close('div');         
-
 
 // 6. Element (Camera Props)
                         oRm.openStart("div");
@@ -1657,26 +1565,16 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.writeClasses();
                             oRm.openEnd();
                             oRm.renderControl(oControl.getAggregation("_HTMLControlHeaderCameraProps"));    
-/*                            
-                                oRm.openStart("div");
-                                oRm.addClass("col-12 col-s-12");
-                                oRm.writeClasses();
-                                oRm.openEnd();
-                                    oRm.write('Camera Props');    
-                                oRm.close('div');   
-*/                                
                             oRm.close('div');               
 // 1. Zeile im Element
                             oRm.openStart("div");
                             oRm.addClass("THSM_row");
                             oRm.writeClasses();
                             oRm.openEnd();
-
                                 oRm.openStart("div");
                                 oRm.addClass("THSM_col-1 THSM_col-s-3");
                                 oRm.writeClasses();
                                 oRm.openEnd();
-//                                    oRm.write('A');                                 
                                     oRm.renderControl(oControl.getAggregation("_HTMLLabelCameraAngle"));                                                                                                                                     
                             oRm.close('div');   
 
@@ -1691,7 +1589,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-2 THSM_col-s-2");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('45');                            
                                 oRm.renderControl(oControl.getAggregation("_HTMLInputCameraAngle"));                                                                                                                                                                     
                             oRm.close('div');   
 
@@ -1707,7 +1604,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                                 oRm.addClass("THSM_col-1 THSM_col-s-3");
                                 oRm.writeClasses();
                                 oRm.openEnd();
-//                                    oRm.write('R');                                 
                                     oRm.renderControl(oControl.getAggregation("_HTMLLabelCameraRatio"));                                                                                                                                                                         
                                 oRm.close('div');   
 
@@ -1722,7 +1618,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-2 THSM_col-s-2");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('.666');
                                 oRm.renderControl(oControl.getAggregation("_HTMLInputCameraRatio"));                                                                                                                                                                                                     
                             oRm.close('div');   
 
@@ -1739,7 +1634,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-1 THSM_col-s-3");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('NP');                                 
                                 oRm.renderControl(oControl.getAggregation("_HTMLLabelCameraNearPane"));                                                                                                                                                                                                         
                             oRm.close('div');   
 
@@ -1754,7 +1648,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-2 THSM_col-s-2");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('.1');
                                 oRm.renderControl(oControl.getAggregation("_HTMLInputCameraNearPane"));                                                                                                                                                                                                                                     
                             oRm.close('div');   
 
@@ -1770,7 +1663,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                             oRm.addClass("THSM_col-1 THSM_col-s-3");
                             oRm.writeClasses();
                             oRm.openEnd();
-//                                oRm.write('FP');                                 
                                 oRm.renderControl(oControl.getAggregation("_HTMLLabelCameraFarPane"));                                                                                                                                                                                                                                         
                             oRm.close('div');   
 
@@ -1785,7 +1677,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                         oRm.addClass("THSM_col-2 THSM_col-s-2");
                         oRm.writeClasses();
                         oRm.openEnd();
-//                            oRm.write('1000');
                             oRm.renderControl(oControl.getAggregation("_HTMLInputCameraFarPane"));                                                                                                                                                                                                                                                                 
                         oRm.close('div');   
                     oRm.close('div');  
@@ -1795,9 +1686,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
                 oRm.close('div');          
 //  Ende Spielplatz               
             oRm.close('div');                
-
-
-
 
         },
         _onResize: function()
@@ -1865,8 +1753,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             
             $( "#inputCameraFarPane" ).val(this.getCameraFarPane());                                                 
             $( "#sliderCameraFarPane" ).val(this.getCameraFarPane());                         
-
-//            this._sResizeHandlerId =  ResizeHandler.register(this, this._onResize.bind(this));
         },
 
 //      ---------------------------------------------------
@@ -1890,8 +1776,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             console.log('setMouseY  : ', iPosx);            
             this.MouseY  = iPosx;
         },       
-
-
 
         getWebGLRenderer() 
         {
@@ -1933,26 +1817,7 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
         {
             this.objectPositionY += (-5);            
         },  
-/*
-        onclick: function(oEvent) 
-        {
-            console.log('onclick ' );                
-           this.fireSayHello(
-               {
-                   message: 
-//                   this.getLastName() + " says Hello."
-                            " says Hello."                   
-               }
-           )
-        },
-		onSayHelloHandler: function(oEvent)
-		{
-			alert("Scene Manager + ", oEvent.getParameter("message"));
-		}  
-        ,           
-*/        
 //      ---------------------------------------------------
-
         getCameraAngle() 
         {
 //            console.log('getObjectPositionX  : ', this.ObjectPositionX);                        
@@ -1994,9 +1859,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             console.log('setCameraFarPane : ', iPosx);            
             this.cameraFarPane = iPosx;
         },               
-
-        
-
 
 //      ---------------------------------------------------
 
@@ -2169,15 +2031,12 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
 
 //      ---------------------------------------------------
 
-
         setupScene: function(  
                             ) 
         {
 
-//            var padding_horiz            = (window.innerWidth / 10) * 2;
             var padding_horiz            = 0;            
             var padding_vert             = (window.innerHeight / 4) * 2;
-//            var padding_grid_horiz       = (window.innerWidth / 2);
             var padding_grid_horiz       = 0;
 
             var padding_grid_vert        = (window.innerHeight / 6) * 2;
@@ -2188,32 +2047,65 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             console.log('setupScene : renderAreaWidth  : ', renderAreaWidth);
             console.log('setupScene : renderAreaHeight  : ', renderAreaHeight);
 
+//          passender Bildausschnitt für Devices
+            var act_CameraPositionX     = -60;
+            var act_CameraPositionZ     = -80;
+            var act_CameraAngle         = 90;            
+
+            var act_CameraRatio     = renderAreaWidth / renderAreaHeight;            
+
+            var act_CameraLookAtX       = 65;
+
+
 //  max renderAreaWidth 1280    
             if (renderAreaWidth  >= 1280  )
             {
                 console.log('setupScene : renderAreaWidth >= 1280 : ', renderAreaWidth);           
                 renderAreaWidth          = 1280;           
-                padding_grid_horiz       = (( window.innerWidth ) / 2);       
-                padding_horiz            =  (1280 - 1152 ) / 2.1;                                    
+                padding_grid_horiz       = (( window.innerWidth ) / 4);       
+                padding_horiz            =  (1280 - 1152 ) / .6;        
+                
+                padding_vert             = 300;
+
+                act_CameraPositionX     = -60;
+                act_CameraPositionZ     = -80;
+                act_CameraAngle         = 75;            
+    
+                act_CameraRatio         = 1;
+
             }
 
             if (renderAreaWidth  < 1280 && renderAreaWidth  >= 1024  )
             {
                 console.log('setupScene : renderAreaWidth >= 1024 : ', renderAreaWidth);                
-                padding_grid_horiz       = (( window.innerWidth  + ( 1280 - renderAreaWidth)) / 2);       
-                padding_horiz            =  (renderAreaWidth - 1152 ) / 2.1;                                    
+//                padding_grid_horiz       = (( window.innerWidth  + ( 1280 - renderAreaWidth)) / 2);       
+//                padding_horiz            =  (renderAreaWidth - 1152 ) / 2.1;                                    
+//renderAreaWidth          = 1280;           
+//                padding_grid_horiz       = (( window.innerWidth ) / 4);       
+                padding_horiz            =  (1280 - 1152 ) / 2;                                    
+                act_CameraPositionX     = -60;
+                act_CameraPositionZ     = -80;
+                act_CameraAngle         = 90;            
+
+                act_CameraRatio         = .666;
+
+
             }
 
             if (renderAreaWidth  < 1024 && renderAreaWidth  >= 320 )
             {
                 console.log('setupScene : renderAreaWidth >= 320 : ', renderAreaWidth);                                
 //                padding_horiz       = (window.innerWidth / 9) * 2;                
-                padding_horiz       =  0 ;                                
+padding_horiz           =  -25 ;                    
 //                padding_grid_horiz       = 0;                      
                 padding_grid_horiz       = (window.innerWidth / 4);                          
                 act_CameraPositionX     = -80;
                 act_CameraPositionZ     = -40;
-                act_CameraAngle         = 75;    
+                act_CameraAngle         = 90;  
+                
+                act_CameraRatio         = .666;                
+                var act_CameraLookAtX       = 95;
+
             }
             if (renderAreaWidth  < 320)
             {
@@ -2248,7 +2140,7 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             const cameraAreaHeight    = window.innerHeight;
             const cameraAreaWidth     = window.innerWidth;
 
-            const act_CameraRatio     = renderAreaWidth / renderAreaHeight;
+
             console.log('setupScene : window.innerWidth  : ', window.innerWidth);
             console.log('setupScene : window.innerHeight  : ', window.innerHeight);
 
@@ -2256,14 +2148,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             console.log('setupScene : renderAreaHeight  : ', renderAreaHeight);
 
 
-//            const act_CameraRatio     = 0.4;            
-//            const act_CameraRatio       = 1;                        
-//            var  iradiusTop = 10;
-
-//          passender Bildausschnitt für Devices
-            var act_CameraPositionX     = -60;
-            var act_CameraPositionZ     = -80;
-            var act_CameraAngle         = 90;
 
 
             console.log('setupScene : act_CameraPositionX  : ', act_CameraPositionX);
@@ -2274,17 +2158,14 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             this.setCameraPositionY(75);            
             this.setCameraPositionZ(act_CameraPositionZ);
 
-            this.setCameraLookAtX(30);
+            this.setCameraLookAtX(act_CameraLookAtX );
             this.setCameraLookAtY(75);            
             this.setCameraLookAtZ(30);
 
             this.setCameraAngle(act_CameraAngle);
-//            this.setCameraRatio(.666);            
-
             this.setCameraRatio(act_CameraRatio);                        
             this.setCameraNearPane(.10);
             this.setCameraFarPane(1000);
-    
 
             this.setObjectPositionX(50); 
             this.setObjectPositionY(70);             
@@ -2301,18 +2182,29 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             this.setMouseX(0);
             this.setMouseY(0);            
 
-//  Control-Input initialisieren
-//            control.oHTMLInputCameraRatio.value()  = act_CameraRatio;
-//            this.getAggregation("_HTMLInputCameraRatio").value = act_CameraRatio;
-//            document.getElementByID("inputCameraRatio").value = act_CameraRatio;
- // $( "#inputCameraRatio" ).val(act_CameraRatio); 
             
             console.log('setupScene : renderAreaHeight  : ', renderAreaHeight);
             console.log('setupScene : renderAreaWidth   : ', renderAreaWidth);         
             console.log('setupScene : this.getCameraRatio()   : ', this.getCameraRatio());         
+
+
+
+
+
 //          Clock für Messung des FrameUpdates initialisieren
             this.clock = new THREE.Clock();               
-  
+
+            this.webGLRenderer = new THREE.WebGLRenderer({
+                antialias: "true",
+                alpha: "true"
+               });       
+    
+            this.webGLRenderer.setSize(renderAreaWidth, renderAreaHeight, false);                             
+//               this.resizeCanvasToDisplaySize();
+    //          create a render and set the size
+               this.webGLRenderer.shadowMapEnabled = false;
+    
+
 
 //          Scene anlegen
             this.scene = new THREE.Scene();
@@ -2320,23 +2212,10 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
 //            this.scene.background = new THREE.Color( 0xeeeeee );            
             this.scene.background = new THREE.Color( 0xd4e5f7 );            
 
-
-            
-
-//          create a camera, which defines where we're looking at.
-//          PerspectiveCamera( fov : Number, aspect : Number, near : Number, far : Number )
-//          .fov : Float
-//          Camera frustum vertical field of view, from bottom to top of view, in degrees. Default is 50.
-//          .aspect : Float
-//          Camera frustum aspect ratio, usually the canvas width / canvas height. Default is 1 (square canvas).
-//          .near : Float
-//          Camera frustum near plane. Default is 0.1.
-//          .far : Float
-//          Camera frustum far plane. Default is 2000.
-
+// Camera   positionieren und ausrichten            
             this.camera      = new THREE.PerspectiveCamera(this.getCameraAngle(), this.getCameraRatio(), this.getCameraNearPane(), this.getCameraFarPane());            
             this.camera.name = "Camera01";   
-// Camera   positionieren und ausrichten
+
             this.getCamera().position.x = this.getCameraPositionX();
             this.getCamera().position.y = this.getCameraPositionY();
             this.getCamera().position.z = this.getCameraPositionZ();
@@ -2345,7 +2224,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
 // -----------------------------------------            
 // Licht
 // -----------------------------------------
-//            this.scene.add(new THREE.AmbientLight(0x777777));
             this.scene.add(new THREE.AmbientLight(0xDDDDDD));
 
 
@@ -2373,7 +2251,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
 //            this.scene.add(helper1);
 
 // Licht Seitenwand            
-//              0xdfebff
             var light2 = new THREE.DirectionalLight(0x0000ff, 0.75);
             light2.position.set(90, 70, 30);
 //            light2.position.multiplyScalar(1.3);
@@ -2391,16 +2268,22 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             this.scene.add(targetObjectlight2);
             light2.target = targetObjectlight2;
             this.scene.add(light2.target);
+
+//          Licht für den Pfeil
+            this.cylinderLight = new THREE.PointLight( 0xffffff, 20, 30, 1 );            
+            this.scene.add( this.cylinderLight );
+
+            const sphereSize = 10;
+            const pointLightHelper = new THREE.PointLightHelper( this.cylinderLight, sphereSize );
+            this.scene.add( pointLightHelper );
+
 //          Zeigt Position des Lichtes an            
 //            const helper = new THREE.DirectionalLightHelper( light2, 1 );
 //            this.scene.add(helper);
 
 
 
-
-// vielleicht liegt's am material ?
-// Beispiel mi funktionierendem Marterial
-// https://github.com/mrdoob/three.js/blob/master/examples/webgl_geometry_text.html
+//            Lichtpunkte, kann man vielleicht noch mal für die Leuchtschrift verwenden
 //            var particleLight = new THREE.Mesh(
 //                                                new THREE.SphereGeometry( 4, 8, 8 ),
 //                                                new THREE.MeshBasicMaterial( { color: 0xffffff } )
@@ -2427,66 +2310,33 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
 //            particleLight.add( pointLight );
 // Licht Ende
 
-
-//           this.webGLRenderer = new THREE.WebGLRenderer({canvas: document.querySelector("canvas")});
-           this.webGLRenderer = new THREE.WebGLRenderer();      
 /*
-           this.webGLRenderer = new THREE.WebGLRenderer({
-            antialias: "true",
-            alpha: "true"
-           });       
-*/        
-           
-           this.resizeCanvasToDisplaySize();
-//          create a render and set the size
-/*
+            var myCanvas = $( "#threeCanvas" )[0];            
+                      
             this.webGLRenderer = new THREE.WebGLRenderer({
-               antialias: "true",
-               alpha: "true"
-              });       
-          
-              
+                antialias: true,
+                canvas: myCanvas,
+            });
+*/
 
-//          veraltet : zieht nicht mehr
-            this.webGLRenderer.setClearColor(0xFFeeee, 0);            
-            this.webGLRenderer.setSize(renderAreaWidth, renderAreaHeight);       
-*/    
-            this.webGLRenderer.shadowMapEnabled = true;
-            this.webGLRenderer.shadowMapEnabled = false;
-
-//            https://stackoverflow.com/questions/7956442/detect-clicked-object-in-three-js
-
-//            https://stackoverflow.com/questions/17638933/three-js-clickable-objects            
-//            https://github.com/jasonChen1982/three.interaction.js
-//          new a interaction, then you can add interaction-event with your free style
-//            const interaction = new THREE.Interaction(this.webGLRenderer, this.scene, this.camera);
-//            var interaction = new THREE.Interaction(this.webGLRenderer, this.scene, this.camera);
-//          Inhalt aufbauen
-
-//          const controls = new THREE.OrbitControls( this.camera, this.webGLRenderer.domElement );
-//          controls.minDistance = 2;
-//          controls.maxDistance = 20;
-//          controls.addEventListener( 'change', this.renderScene.bind(this) );            
-
-
-//          Eventlistener für Mausbewegung
-//          Beispiel : https://github.com/mrdoob/three.js/blob/master/examples/webgl_materials_bumpmap.html
+//         Eventlistener für Mausbewegung
+//         Beispiel : https://github.com/mrdoob/three.js/blob/master/examples/webgl_materials_bumpmap.html
 //         https://www.mediaevent.de/javascript/event-listener.html
             document.mouseY = 0;
             document.addEventListener( 'mousedown', this.onDocumentMouseMove );
 
-
+//          Elemente in die Scene setzen            
             this._sceneContent();     
 //          ThreeJS renderer            
             this.renderScene();            
         }
         ,
-        resizeCanvasToDisplaySize : function () {
-//            https://stackoverflow.com/questions/29884485/threejs-canvas-size-based-on-container            
-            const canvas = this.webGLRenderer.domElement;
-//            const width = canvas.clientWidth;
-//            const height = canvas.clientHeight;
+        resizeCanvasToDisplaySize : function () 
+        {
+//            https://stackoverflow.com/questions/29884485/threejs-canvas-size-based-on-container     
 
+
+            const canvas = this.webGLRenderer.domElement;
             var width  = canvas.width;
             var height = canvas.width * 1.5;
 
@@ -2494,39 +2344,17 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             console.log('resizeCanvasToDisplaySize : canvas.width  : ', canvas.width);
             console.log('resizeCanvasToDisplaySize : canvas.clientHeight  : ', canvas.clientHeight);
             console.log('resizeCanvasToDisplaySize : canvas.height  : ', canvas.height);
-
-
-//            if (canvas.width !== width ||canvas.height !== height) {
-              // you must pass false here or three.js sadly fights the browser
-//              this.webGLRenderer.setSize(width, height, false);
-              this.webGLRenderer.setSize(width, height, false);              
-//              camera.aspect = width / height;
-//              camera.updateProjectionMatrix();
-          
-              // set render target sizes here
-//            }
-          }        
+            this.webGLRenderer.setSize(width, height, false);              
+        }        
 
 
         ,
         onDocumentMouseMove : function ( event ) 
         {
-//          this.mouseX = ( event.clientX - windowHalfX );
-//          this.mouseY = ( event.clientY - windowHalfY );
-//          this.setMouseX(event.clientX - 200);
-//          this.setMouseY(event.clientY - 200);     
-
-//            this.mouseX = ( event.clientX - 200 );
+//          this.mouseX = ( event.clientX - 200 );
+//          Möglichkeit für eine globale Variable
             document.mouseY = ( event.clientY - 200 );
-
-//            _privMouseX = ( event.clientX - 200 );
-//            _privMouseY = ( event.clientY - 200 );
-
-//          console.log('onDocumentMouseMove this.getMouseX() : ', this.getMouseX() , this.getMouseY());                        
-//            console.log('onDocumentMouseMove this.getMouseX() : ', this.mouseX , this.mouseY);                                    
-//            console.log('onDocumentMouseMove _privMouseY : ', _privMouseX , _privMouseY);                                                
             console.log('onDocumentMouseMove document.mouseY : ', document.mouseY);                                                
-//            this._privateMethod();
         },        
 
 //      from THREE.SceneUtils.createMultiMaterialObject
@@ -2543,7 +2371,6 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
         {
 //          Boden einziehen            
             var geoFloor                = new THREE.PlaneGeometry(100, 150, 40, 40);
-//            var matFloor                = new THREE.MeshBasicMaterial( {color: 0xCCCCEE, side: THREE.DoubleSide } );      
             var matFloor                = new THREE.MeshBasicMaterial( {color: 0x051424, side: THREE.DoubleSide } );                  
             var wireFrameMatFloor       = new THREE.MeshBasicMaterial();
             wireFrameMatFloor.wireframe = false;      
@@ -2561,8 +2388,8 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             
 //          Wände
 //          ---------------------------------------------------------------
-            const gradientformat =  THREE.LuminanceFormat;                    
 //          const format = ( this.webGLRenderer.capabilities.isWebGL2 ) ? THREE.RedFormat : THREE.LuminanceFormat;               
+            const gradientformat =  THREE.LuminanceFormat;                    
             var alphaIndex = 1;
 //          Farben aus ColorMap            
             const colors = new Uint8Array( alphaIndex + 2 );
@@ -2578,28 +2405,17 @@ oHTMLControlHeaderObjPos.attachBrowserEvent("mouseenter", function(oEvent)
             var diffuseColorAlpha      = .6;
             var diffuseColorBeta       = .6;
             var diffuseColorGamma      = .9;
-//            const diffuseColor = new THREE.Color().setHSL( alpha, 0.5, gamma * 0.5 + 0.1 ).multiplyScalar( 1 - beta * 0.2 );
-            var diffuseColor         = new THREE.Color().setHSL( diffuseColorAlpha, 0.5, diffuseColorGamma * 0.5 + 0.1 ).multiplyScalar( 1 - diffuseColorBeta * 0.2 );            
+            var diffuseColor           = new THREE.Color().setHSL( 
+                                                                    diffuseColorAlpha, 
+                                                                    0.5, 
+                                                                    diffuseColorGamma * 0.5 + 0.1 
+                                                                 ).multiplyScalar( 1 - diffuseColorBeta * 0.2 );            
 
-/*
-            const rueckwandmaterial    = new THREE.MeshToonMaterial( 
-            {
-                color: diffuseColor,
-                gradientMap: gradientMap
-            } );
-*/            
-const rueckwandmaterial = [
-    new THREE.MeshToonMaterial( {color: diffuseColor, gradientMap: gradientMap} ),
-    new THREE.MeshToonMaterial( {color: diffuseColor, gradientMap: gradientMap} )
-    // side
-];
-/*
             const rueckwandmaterial = [
-                new THREE.MeshPhongMaterial( { color: 0x123456 , flatShading: true} ), // front
-                new THREE.MeshPhongMaterial( { color: 0x123456 } )              
+                new THREE.MeshToonMaterial( {color: diffuseColor, gradientMap: gradientMap} ),
+                new THREE.MeshToonMaterial( {color: diffuseColor, gradientMap: gradientMap} )
                 // side
             ];
-*/
             const rueckwandgeometry       = new THREE.BoxGeometry( 1, 200, 100 )                       
             const rueckwandmesh           = this.createMultiMaterialObject(rueckwandgeometry, [rueckwandmaterial, wireFrameMatFloor]);              
             rueckwandmesh.position.x      = 50;
@@ -2611,65 +2427,34 @@ const rueckwandmaterial = [
             this.getScene().add(rueckwandmesh);          
             
 //          Seitenwand  
-            diffuseColorAlpha      = .2;
-            diffuseColorBeta       = .2;
-            diffuseColorGamma      = .8;
-//            const diffuseColor = new THREE.Color().setHSL( alpha, 0.5, gamma * 0.5 + 0.1 ).multiplyScalar( 1 - beta * 0.2 );
-            diffuseColor         = new THREE.Color().setHSL( diffuseColorAlpha, 0.5, diffuseColorGamma * 0.5 + 0.1 ).multiplyScalar( 1 - diffuseColorBeta * 0.2 );            
 
-/*            
-            const seitenwandmaterial    = new THREE.MeshToonMaterial( 
-            {
-                color: diffuseColor,
-                gradientMap: gradientMap
-            } );
-*/
-//         , flatShading: true
 
-//  Seitenwand als MultiMaterialObject
-/*
-            const seitenwandmaterial = [
-                new THREE.MeshPhongMaterial( { color: 0x333333 } ), // front
-                new THREE.MeshPhongMaterial( { color: 0x123456 } ) // side
-            ];
+//          Seitenwand als Objekt mit Textures 
+            const texLoader = new THREE.TextureLoader();
+            const mat1 = new THREE.MeshBasicMaterial({color: 0xffffff, map: texLoader.load('assets/img/HotMocka-CT-060-033_5.jpg')});
+	        const mat2 = new THREE.MeshBasicMaterial({color: 0xffffff, map: texLoader.load('assets/img/Tiamat-CT-060-085_5.jpg')});
+	        const mat3 = new THREE.MeshBasicMaterial({color: 0xffffff, map: texLoader.load('assets/img/ParadiseJungle-112456_4.jpg')});
+            const mat4 = new THREE.MeshBasicMaterial({color: 0xffffff, map: texLoader.load('assets/img/ParadiseJungle-112456_4.jpg')});
+        	const mat5 = new THREE.MeshBasicMaterial({color: 0xffffff, map: texLoader.load('assets/img/ParadiseJungle-112456_4.jpg')});
+	        const mat6 = new THREE.MeshBasicMaterial({color: 0xffffff, map: texLoader.load('assets/img/ParadiseJungle-112456_4.jpg')});
+
+	        var material = [
+		                    mat1,
+		                    mat2,
+		                    mat3,
+		                    mat4,
+		                    mat5,
+		                    mat6,
+	        ];    
             const seitenwandgeometry       = new THREE.BoxGeometry( 1, 200, 150 )                       
-            const seitenwandmesh           = this.createMultiMaterialObject(seitenwandgeometry, [seitenwandmaterial, wireFrameMatFloor]);        
-*/           
-
-//  Seitenwand als Objekt mit Textures 
-    const texLoader = new THREE.TextureLoader();
-    const mat1 = new THREE.MeshBasicMaterial({color: 0xffffff, map: texLoader.load('assets/img/HotMocka-CT-060-033_5.jpg')});
-	const mat2 = new THREE.MeshBasicMaterial({color: 0xffffff, map: texLoader.load('assets/img/Tiamat-CT-060-085_5.jpg')});
-	const mat3 = new THREE.MeshBasicMaterial({color: 0xffffff, map: texLoader.load('assets/img/ParadiseJungle-112456_4.jpg')});
-	const mat4 = new THREE.MeshBasicMaterial({color: 0xffffff, map: texLoader.load('assets/img/ParadiseJungle-112456_4.jpg')});
-	const mat5 = new THREE.MeshBasicMaterial({color: 0xffffff, map: texLoader.load('assets/img/ParadiseJungle-112456_4.jpg')});
-	const mat6 = new THREE.MeshBasicMaterial({color: 0xffffff, map: texLoader.load('assets/img/ParadiseJungle-112456_4.jpg')});
-
-	var material = [
-		mat1,
-		mat2,
-		mat3,
-		mat4,
-		mat5,
-		mat6,
-	];    
-    const seitenwandgeometry       = new THREE.BoxGeometry( 1, 200, 150 )                       
-//    const seitenwandmesh           = this.createMultiMaterialObject(seitenwandgeometry, [seitenwandmaterial, wireFrameMatFloor]);        
-    const seitenwandmesh           = new THREE.Mesh( seitenwandgeometry, material );
-
-
-
+            const seitenwandmesh           = new THREE.Mesh( seitenwandgeometry, material );
             seitenwandmesh.position.x      = 100;
             seitenwandmesh.position.y      = 100;                     
             seitenwandmesh.position.z      = 25;     
             seitenwandmesh.receiveShadow   = true;
             this.getScene().add(seitenwandmesh);          
 
-
-
-
-
-
+//  Für die Pfeil-Rotation ?
 //  https://stackoverflow.com/questions/10747510/how-to-rotate-a-three-js-vector3-around-an-axis
 //            https://codepen.io/arpo/pen/LkXYGQ/?editors=0010
 // ---------------------------
@@ -2706,7 +2491,6 @@ const rueckwandmaterial = [
             var dae1;
 //          Zugriff auf die Scene in anonymer Methode gewährleisten
             var loc_scene   = this.scene;
-// where_software_meets_design_text02.dae           
             colLoader.load('assets/models/ThreeSceneManager/where_software_meets_design_text03.dae', function (collada)
             {
                 dae1 = collada.scene;
@@ -2718,7 +2502,6 @@ const rueckwandmaterial = [
                  var EndTime = new Date(), TotalTime;
                  EndTime     = StartTime - EndTime;
                  TotalTime   = Math.abs(EndTime);
-//                 console.log("Object 2 loaded\nLoaded in: " + TotalTime + "ms.");
                  setTimeout(function()
                  {
                     try{                     
@@ -2731,65 +2514,34 @@ const rueckwandmaterial = [
                             new THREE.MeshToonMaterial( {color: dae1_diffuseColor, gradientMap: gradientMap} ),
                             new THREE.MeshToonMaterial( {color: dae1_diffuseColor, gradientMap: gradientMap} )
                         ];
-
-/*                               
-                        const dae1_mesh           = this.createMultiMaterialObject(dae1, [dae1_material, wireFrameMatFloor]);              
-                        dae1_mesh.scale.x = 30;
-                        dae1_mesh.scale.y = 50;
-                        dae1_mesh.scale.z = 100;
-
-                        dae1_mesh.position.x = 50;                   
-                        dae1_mesh.position.y = 150;      
-                        dae1_mesh.position.z = 95;          
-                        dae1_mesh.rotation.z = 180 * (Math.PI / 180);                                 
-                        dae1_mesh.name    = "claim01";         
-//                 Wenn geladen, der Scene hinzufügen                   
-                        loc_scene.add(dae1_mesh);         
- */                           
   
                         var textureLoader = new THREE.TextureLoader();
-                        var texture = textureLoader.load('assets/img/Dummy02.jpg');
-
-//                        loader.load( './car.dae', function ( collada ) {
-//    dae1.scene.traverse(function (node) 
+//                        var texture = textureLoader.load('assets/img/Dummy02.jpg');
+                        var texture = textureLoader.load('assets/img/HotMocka-CT-060-033_1.jpg');                                           
+//                      Textur auf Elemente des Modells mappen, die Mesh sind                        
                         dae1.traverse(function (node) 
                         {
-
                             if (node.isMesh) {
-//                                debugger    
                                 console.log("node.name : " + node.name);                                                             
                                 node.material.map = texture;
                                 console.log("node.material.map.uuid : " + node.material.map.uuid);                                                                                             
                             }
                         });
 
-//});
-// where_software_meets_design_text02.dae           
-dae1.scale.x = 30;
-dae1.scale.y = 50;
-dae1.scale.z = 100;
-
-
                         dae1.scale.x = 3;
                         dae1.scale.y = 5;
                         dae1.scale.z = 10;
 
                         dae1.position.x = 50;                   
-//                        dae1.position.y = 150;      
                         dae1.position.y = 120;                              
                         dae1.position.z = 95;        
-// where_software_meets_design_text02.dae                                     
-//                        dae1.rotation.z = 180 * (Math.PI / 180);        
 
                         dae1.rotation.y = 180 * (Math.PI / 180);                                                         
                         dae1.name    = "claim01";         
 //                 Wenn geladen, der Scene hinzufügen                   
                         loc_scene.add(dae1);         
-
-
                     } catch (error)                              
                     {}
-//                       console.log("Object 2 adjusted scales");
                     }, TotalTime);
                }
             });             
@@ -2821,9 +2573,7 @@ dae1.scale.z = 100;
                     board01.position.x = 50;                   
                     board01.position.y = 75;      
                     board01.position.z = 97;          
-//                    board01.rotation.y = 180 * (Math.PI / 180);                                 
                     board01.rotation.x = -90 * (Math.PI / 180);                                                     
-//                    board01.rotation.y = -30 * (Math.PI / 180);                                                     
                     board01.name    = "board01";     
                 } catch (error)                              
                 {}                                                    
@@ -2838,10 +2588,10 @@ dae1.scale.z = 100;
             var cylinder;
 //            var pfeil01;
 //          Zugriff auf die Scene in anonymer Methode gewährleisten
-//  Pfeil01_1_4.dae
             var loc_scene   = this.scene;
-//            colLoader.load('assets/models/ThreeSceneManager/Pfeil_1_4.dae', function (collada)
+            
             colLoader.load('assets/models/ThreeSceneManager/Pfeil01_1_5.dae', function (collada)            
+//            colLoader.load('assets/models/ThreeSceneManager/stift_zur_unterschrift02_1_5.dae', function (collada)            
             {
                 cylinder = collada.scene;
             }, 
@@ -2856,57 +2606,45 @@ dae1.scale.z = 100;
 //                 console.log("Object 2 loaded\nLoaded in: " + TotalTime + "ms.");
                  setTimeout(function()
                  {
-                   cylinder.name    = "Cylinder01";                                     
+                   cylinder.name    = "Cylinder01";        
+/*                   
+                   var textureLoader = new THREE.TextureLoader();
+//                   var texture = textureLoader.load('assets/img/Dummy02.jpg');
+                   var texture = textureLoader.load('assets/img/HotMocka-CT-060-033_1.jpg');                   
+//                      Textur auf Elemente des Modells mappen, die Mesh sind                        
+                   cylinder.traverse(function (node) 
+                   {
+                       if (node.isMesh) {
+                           console.log("node.name : " + node.name);                                                             
+                           node.material.map = texture;
+                           console.log("node.material.map.uuid : " + node.material.map.uuid);                                                                                             
+                       }
+                   });                   
+*/
 //                 Wenn geladen, der Scene hinzufügen                   
                    loc_scene.add(cylinder);          
 
                    cylinder.rotation.x = 0;                    
                    cylinder.rotation.z = 90;
-                   cylinder.rotation.y = -45;                                                      
+                   cylinder.rotation.y = -45;        
+//                   this.cylinder.add( cylinderLight );
+
 //                   cylinder.rotation.y = 180 * (Math.PI / 180);                                                                         
                    console.log("pfeil01 adjusted scales");
                  }, TotalTime);
                }
             });             
-
-
-
-// ---------------------------
-/*   ersetzt durch Pfeil         
-// ---------------------------
-//          Objekt erzeugen
-            var cylinder = this._createMesh(new THREE.CylinderGeometry(this.getObjectRadiusTop(), this.getObjectRadiusBottom(), this.getObjectHeight(), 32));
-//          Objekt der scene hinzufügen
-            this.getScene().add(cylinder);
-//          mesh positionieren            
-            cylinder.position.set(this.getObjectPositionZ(), this.getObjectPositionY(), this.getObjectPositionX());
-//          mesh skalieren
-            cylinder.scale.set(this.getObjectScaleX(),this.getObjectScaleY(),this.getObjectScaleZ());
-
-//            cylinder.cursor = 'pointer';
-//            cylinder.on('click', function(ev) {});            
-//            cylinder.attachBrowserEvent("click", function(oEvent) 
-//            {
-//                console.log('cylinder click : ' + oEvent.target);   
-//            });
-
-//            this.scene.on('click', ev => {
-//                console.log(ev);
-//            })
-*/
         } ,  
-
 
         _createMesh: function(geom)
         {
-// assign two materials
+//          assign two materials
             var meshMaterial       = new THREE.MeshBasicMaterial( {color: 0x222222} );            
             meshMaterial.side      = THREE.DoubleSide;
             var wireFrameMat       = new THREE.MeshBasicMaterial();
             wireFrameMat.wireframe = true;
 
-
-// create a multimaterial (lokale Funktion)
+//          create a multimaterial (lokale Funktion)
             var mesh = this.createMultiMaterialObject(geom, [meshMaterial, wireFrameMat]);                                                
             mesh.name = "Cylinder01";
             return mesh;
@@ -2954,22 +2692,16 @@ dae1.scale.z = 100;
             var cylinder = this.getScene().getObjectByName( "Cylinder01", true );     
             try 
             {
-//          altes Objekt löschen            
-//            this.getScene().remove(cylinder);
-//            cylinder = this._createMesh(new THREE.CylinderGeometry(this.getObjectRadiusTop(), this.getObjectRadiusBottom(), this.getObjectHeight(), 32));
-//            // neues Object hinzu
-//            this.getScene().add(cylinder);
-//          Objekt positionieren            
-//                var delta = this.clock.getDelta();
                 cylinder.scale.set(this.getObjectScaleX(),this.getObjectScaleY(),this.getObjectScaleZ());
                 cylinder.position.set(this.getObjectPositionX(), this.getObjectPositionY(), this.getObjectPositionZ());
                 cylinder.rotation.set(this.getObjectRotationX() * Math.PI / 180, this.getObjectRotationY() * Math.PI / 180, this.getObjectRotationZ() * Math.PI / 180);
-//                console.log("this.getObjectPositionX() ", this.getObjectPositionX());                
-//                console.log("this.getObjectPositionY() ", this.getObjectPositionY());                                
-//                console.log("this.getObjectPositionZ() ", this.getObjectPositionZ());                                
-//                cylinder.rotation.y += delta * 30 * Math.PI / 180;                          
-//                cylinder.rotation.y = 180 * Math.PI / 180;                          
-//                cylinder.rotation.set(this.getObjectRotationZ() , this.getObjectRotationY(), this.getObjectRotationX());                
+
+                this.cylinderLight.position.set(this.getObjectPositionX() + 20, this.getObjectPositionY() + 10, this.getObjectPositionZ() - 30);                
+//                this.cylinderLight.position.x = 100;
+//                this.cylinderLight.position.y = 70;
+//                this.cylinderLight.position.z = 30;                   
+
+
             } catch (error) 
             {
                 console.error(error.message);
@@ -2980,13 +2712,11 @@ dae1.scale.z = 100;
             if(this.getObjectPositionX() == 100 && this.getObjectPositionY() == 50 && this.getObjectPositionZ() == 50)
             {
                console.log("Der Kandidat hat 100 Punkte !");
-
             }
 
             var pfeil01 = this.getScene().getObjectByName( "pfeil01", true );  
             try 
             {
-
                 var targetX = this.getMouseX() * .001;
 				var targetY = this.getMouseY() * .001;
 //                console.log("renderScene this.getMouseX() : " + this.getMouseX() + " this.getMouseY() : " + this.getMouseY());

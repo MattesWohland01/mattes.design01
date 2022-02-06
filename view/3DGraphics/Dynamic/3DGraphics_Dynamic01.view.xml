@@ -49,7 +49,7 @@
 			<l:Grid
 				class="sapUiSmallMarginTop"
 				hSpacing="2"
-				defaultSpan="L6 M12 S12"
+				defaultSpan="XL12 L12 M12 S12"
 			>
 				<l:content>				   			
 					<VBox>									   					
