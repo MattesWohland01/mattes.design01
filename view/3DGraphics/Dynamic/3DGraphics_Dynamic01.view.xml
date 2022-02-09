@@ -56,9 +56,9 @@
 						<html:div class="MattesDesignTextH3">
 							3D Modell mit Steuerung von Objekten und Kamera
  						</html:div>
-							<controls:ThreeSceneManager class="threeCylinderGeometry">
+							<controls:ThreeSceneManager.ThreeSceneManager class="threeCylinderGeometry">
  									
-							</controls:ThreeSceneManager>		
+							</controls:ThreeSceneManager.ThreeSceneManager>		
 
 						<html:div class="MattesDesignTextStd">
 							Dieses Projekt hat eine relativ technischen Charakter. Es zeigt die Steuerung von Elementen Modell ...
